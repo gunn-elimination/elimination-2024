@@ -1,6 +1,6 @@
 # Gunn Elimination 2024
 
-The 2024 Elimination website is developed using the SUKIT tech stack (Supabase, SvelteKit). Please open a pull request if you want to contribute.
+The 2024 Elimination website is developed using the SUKIT tech stack (Supabase, SvelteKit). I'm not using Firebase cuz FKIT. Please open a pull request if you want to contribute.
 
 ## Developing
 
