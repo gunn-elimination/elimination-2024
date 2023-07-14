@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-    html,
-    body {
-      @apply dark:bg-neutral-900;
-    }
-  }
-  
+	html,
+	body {
+		@apply dark:bg-neutral-900;
+		@apply dark:text-white;
+	}
+}
