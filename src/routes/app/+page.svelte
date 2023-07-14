@@ -7,7 +7,7 @@
 		<div class="flex space-x-4">
 			<div class="flex flex-1 flex-col items-start justify-center overflow-hidden">
 				<div class="text-neutral-400">Target</div>
-				<div class="whitespace-nowrap text-2xl">Ethan Fusdfsdfsdf sdfsdfsdfsdfsdf</div>
+				<div class="whitespace-nowrap text-2xl">Ethan Fu</div>
 			</div>
 			<div class="flex flex-col items-center justify-center">
 				<div class="text-neutral-400">Rank</div>
