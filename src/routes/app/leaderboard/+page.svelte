@@ -46,23 +46,23 @@
 		</div>
 		{#if showLeaderboard}
 			<div class="mt-4 flex px-4 py-2 text-neutral-400">
-				<div class="w-16 text-left">Rank</div>
-				<div class="flex-1">Name</div>
-				<div class="w-16 text-right">Kills</div>
+				<div class="w-16 text-left text-neutral-300">Rank</div>
+				<div class="flex-1 text-neutral-300">Name</div>
+				<div class="w-16 text-right text-neutral-300">Kills</div>
 			</div>
 			<div class="flex flex-col space-y-2">
 				{#each [1, 2, 3, 4, 5, 6, 7] as num}
-					<a href="/app/profile/@me" class="flex rounded-lg bg-neutral-700 px-4 py-2">
-						<div class="w-16 pl-4 text-left">1</div>
-						<div class="flex-1 font-bold">Dylan Lu</div>
-						<div class="w-16 pr-2 text-right">13</div>
+					<a href="/app/profile/@me" class="flex rounded-lg bg-neutral-700/70 px-4 py-2">
+						<div class="w-16 pl-4 text-left text-neutral-200">1</div>
+						<div class="flex-1 text-neutral-200">Dylan Lu</div>
+						<div class="w-16 pr-2 text-right text-neutral-200">13</div>
 					</a>
 				{/each}
 			</div>
 		{:else}
 			<div class="flex flex-col space-y-2">
 				{#each [1, 2, 3, 4, 5, 6, 7] as num}
-					<div class="mt-4 flex flex-col rounded-lg bg-neutral-700 px-4 py-2">
+					<div class="mt-4 flex flex-col rounded-lg bg-neutral-700/70 px-4 py-2">
 						<div>
 							<a href="/app/profile/@me" class="font-bold">Dylan Lu</a>{' '}<span
 								class="text-neutral-300">eliminated</span
