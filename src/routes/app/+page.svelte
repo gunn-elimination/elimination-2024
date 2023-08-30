@@ -1,5 +1,5 @@
 <script>
-	import Container from '$lib/components/Container.svelte';
+	import backgroundImage from '$lib/assets/images/gunn-background.jpg';
 
 	let challenge = "Wear sunglasses so you don't die";
 	let target = 'Ethan Fu';
@@ -9,40 +9,38 @@
 	let code = '';
 </script>
 
-<Container class="flex h-full w-screen flex-col space-y-4 pt-8">
-	<!-- Rule for Today -->
-	<div class="flex flex-col items-start rounded-lg bg-neutral-800 p-6">
-		<h2 class="text-sm text-neutral-400">Today's Challenge</h2>
-		<p class="text-2xl text-neutral-300">{challenge}</p>
+<div>
+	<div class="fixed -z-10 w-full">
+		<div class="absolute h-48 w-full bg-neutral-900/80" />
+		<img src={backgroundImage} alt="background" class="h-48 w-full object-cover object-center" />
 	</div>
-	<!-- Target -->
-	<div class="flex rounded-lg bg-red-900/20 p-6">
-		<div class="flex-1">
-			<h2 class="text-sm text-neutral-400">Target</h2>
-			<p class="text-2xl font-bold text-red-500">{target}</p>
+	<div class="p-8">
+		<div class="flex">
+			<div class="flex-1 flex-col">
+				<div class="text-sm text-neutral-400">95030486</div>
+				<div class="text-3xl text-white">Ethan Fu</div>
+			</div>
+			<div class="mr-4 text-right">
+				<div class=" text-sm text-neutral-400">RANK</div>
+				<div class="text-3xl text-white">12</div>
+			</div>
+			<div class="text-right">
+				<div class="text-sm text-neutral-400">KILLS</div>
+				<div class="text-3xl text-white">7</div>
+			</div>
 		</div>
-		<div class="mr-4 text-center">
-			<h2 class="text-sm text-neutral-400">Rank</h2>
-			<p class="text-2xl font-bold text-red-500">{rank}</p>
+		<div class="mt-6 rounded-lg bg-neutral-700 px-8 py-6 shadow-xl">
+			<div class="text-sm text-neutral-500">TARGET</div>
+			<div class="mt-3 flex w-full justify-center space-x-2">
+				<button class="rounded-lg bg-red-600 px-6 py-2 text-sm font-bold text-red-900 shadow-md"
+					>ELIMINATE</button
+				>
+				<button class="rounded-lg px-6 py-2 text-sm text-gray-400">REPORT</button>
+			</div>
 		</div>
-		<div class="text-center">
-			<h2 class="text-sm text-neutral-400">Kills</h2>
-			<p class="text-2xl font-bold text-red-500">{kills}</p>
-		</div>
-	</div>
-	<!-- Controls-->
-	<div class="class flex-col rounded-lg bg-neutral-800 p-6">
-		<h2 class="mb-4 text-sm text-neutral-400">Controls</h2>
-		<div class="flex flex-col space-y-2">
-			<button class="mb-4 rounded-lg bg-neutral-700 px-4 py-2 text-lg font-bold"
-				>Show Your Code</button
-			>
-			<input
-				bind:value={code}
-				placeholder={`${target}'s Code`}
-				class="rounded-lg px-4 py-2 shadow-inner"
-			/>
-			<button class="rounded-lg bg-red-500 px-4 py-2 text-lg font-bold">Eliminate</button>
+		<div class="mt-4 rounded-lg bg-neutral-700 px-8 py-6 shadow-xl">
+			<div class="text-sm text-neutral-500">TODAY</div>
+			<div class="text-lg">Wear a hat to stay safe</div>
 		</div>
 	</div>
-</Container>
+</div>

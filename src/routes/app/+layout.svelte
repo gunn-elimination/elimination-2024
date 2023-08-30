@@ -3,6 +3,5 @@
 	import NavigationBottom from '$lib/components/NavigationBottom.svelte';
 </script>
 
-<Header />
 <slot />
 <NavigationBottom />

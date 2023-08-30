@@ -18,6 +18,9 @@ export default {
 						'background-position': 'right center'
 					}
 				}
+			},
+			fontFamily: {
+				nunito: ['Nunito', 'sans-serif']
 			}
 		}
 	},
