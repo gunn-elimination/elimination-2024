@@ -12,7 +12,9 @@
 	];
 </script>
 
-<div class="fixed bottom-0 flex w-full justify-around border-t border-t-neutral-700">
+<div
+	class="fixed bottom-0 z-10 flex w-full justify-around border-t border-t-neutral-700 bg-neutral-800"
+>
 	{#each navigation as item}
 		<a
 			href={item.to}
