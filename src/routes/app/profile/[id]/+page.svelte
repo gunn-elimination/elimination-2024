@@ -14,7 +14,7 @@
 </script>
 
 <Container class="flex h-full w-screen flex-col space-y-4 pt-8">
-	<div class="rounded-lg bg-neutral-800 p-8">
+	<!-- <div class="rounded-lg bg-neutral-800 p-8">
 		<div class="flex space-x-4">
 			<div class="flex flex-1 flex-col items-start justify-center">
 				<div class="text-neutral-400">ID: 95030486</div>
@@ -43,9 +43,13 @@
 				</div>
 			{/each}
 		</div>
-	</div>
+	</div> -->
 	<!-- TODO: only if it's us -->
-	<div class="flex w-full justify-end">
-		<button class="rounded-lg bg-neutral-700 px-4 py-2 font-bold" on:click={logout}>Logout</button>
-	</div>
+	<h1 class="text-3xl">Account</h1>
+	<button class="w-full rounded-lg bg-red-600 px-4 py-2 font-bold text-red-900" on:click={logout}
+		>DELETE ACCOUNT</button
+	>
+	<button class="w-full rounded-lg bg-neutral-700 px-4 py-2 font-bold" on:click={logout}
+		>LOGOUT</button
+	>
 </Container>

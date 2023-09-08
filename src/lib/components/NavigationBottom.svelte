@@ -6,7 +6,7 @@
 
 	let navigation = [
 		{ to: '/app', icon: HomeIcon, text: 'Home' },
-		{ to: '/app/activity', icon: LeaderboardIcon, text: 'Activity' },
+		{ to: '/app/leaderboard', icon: LeaderboardIcon, text: 'Leaderboard' },
 		{ to: '/app/rules', icon: RulesIcon, text: 'Rules' },
 		{ to: '/app/profile/@me', icon: ProfileIcon, text: 'Profile' }
 	];
