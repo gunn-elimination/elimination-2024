@@ -1,5 +1,5 @@
 <script lang="ts">
-	import logo from '$lib/assets/images/logo.png';
+	import logo from '$lib/assets/images/icons/logo.png';
 </script>
 
 <nav class="flex justify-start p-4">
