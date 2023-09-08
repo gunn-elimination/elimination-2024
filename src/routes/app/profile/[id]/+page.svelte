@@ -1,5 +1,16 @@
 <script>
 	import Container from '$lib/components/Container.svelte';
+	import { goto } from '$app/navigation';
+
+	export let data;
+	let { supabase } = data;
+	$: ({ supabase } = data);
+
+	const logout = async () => {
+		const { error } = await supabase.auth.signOut();
+		if (error) console.error(error);
+		else goto('/login');
+	};
 </script>
 
 <Container class="flex h-full w-screen flex-col space-y-4 pt-8">
@@ -32,5 +43,9 @@
 				</div>
 			{/each}
 		</div>
+	</div>
+	<!-- TODO: only if it's us -->
+	<div class="flex w-full justify-end">
+		<button class="rounded-lg bg-neutral-700 px-4 py-2 font-bold" on:click={logout}>Logout</button>
 	</div>
 </Container>

@@ -2,7 +2,7 @@
 <script lang="ts">
 	import Container from '$lib/components/Container.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	import logo from '$lib/assets/images/logo.png';
+	import logo from '$lib/assets/images/icons/logo.png';
 
 	export let data;
 	let { supabase, url } = data;
@@ -31,25 +31,31 @@
 </script>
 
 <Container class="flex h-full w-screen items-center justify-center">
-	<form class="flex w-80 flex-col items-center justify-center rounded-lg" on:submit={handleSubmit}>
-		<img src={logo} alt="Gunn Elimination Logo" class="h-32 w-32" />
-		<h1 class="mb-8 text-4xl">Welcome</h1>
+	<form
+		class="flex w-96 flex-col items-center justify-center rounded-lg bg-neutral-700 p-8 shadow-xl md:p-16"
+		on:submit={handleSubmit}
+	>
+		<img src={logo} alt="Gunn Elimination Logo" class="h-24" />
+		<h1 class="mb-8 mt-4 text-3xl font-bold">Gunn Elimination</h1>
 		{#if !success}
 			<input
-				class="w-full rounded-lg bg-transparent px-6 py-3 text-lg tracking-wider text-gray-300 outline outline-1 outline-gray-500 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+				class="w-full rounded-lg bg-neutral-800 px-6 py-3 text-lg tracking-wider text-neutral-300 shadow-md outline-none"
+				name="email"
 				placeholder="PAUSD Email"
 				bind:value={email}
 			/>
 			<button
-				class="mt-4 w-full rounded-lg bg-primary px-6 py-3 text-lg font-semibold text-white hover:bg-primary/90"
+				class="mt-4 w-full rounded-lg bg-black px-6 py-3 text-lg font-semibold text-white shadow-md hover:bg-neutral-900"
 				>Log in / Sign up</button
 			>
 			{#if errorMessage !== ''}
-				<div class=" mt-4 text-center text-lg text-primary">Error: {errorMessage}</div>
+				<div class=" mt-2 rounded-lg px-4 py-2 text-center text-lg text-red-500">
+					Error: {errorMessage}
+				</div>
 			{/if}
 		{:else}
 			<div class="text-center text-lg">
-				Please check your email for a signin link (from Supabase). You may close this page.
+				Check your PAUSD email! (from Supabase - "Your Magic Link")
 			</div>
 		{/if}
 	</form>

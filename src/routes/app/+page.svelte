@@ -14,8 +14,9 @@
 	<div class="fixed -z-10 h-screen w-full">
 		<div class="absolute h-48 w-full bg-neutral-900/80" />
 		<img src={backgroundImage} alt="background" class="h-48 w-full object-cover object-center" />
-		<img src={pattern} alt="background" class="h-1/2 w-full object-cover object-center" />
-		<img src={pattern} alt="background" class="h-1/2 w-full object-cover object-center" />
+		<img src={pattern} alt="background" class="h-1/3 w-full object-cover object-center" />
+		<img src={pattern} alt="background" class="h-1/3 w-full object-cover object-center" />
+		<img src={pattern} alt="background" class="h-1/3 w-full object-cover object-center" />
 	</div>
 	<div class="p-8">
 		<div class="flex">
