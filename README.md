@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5193f97d-be1d-4953-967c-093aad0c8d28/deploy-status)](https://app.netlify.com/sites/gunn-elimination-2024/deploys)
+
 # Gunn Elimination 2024
 
 The 2024 Elimination website is developed using the SUKIT tech stack (Supabase + SvelteKit). I'm not using Firebase cuz FKIT. Please open a pull request if you want to contribute.
