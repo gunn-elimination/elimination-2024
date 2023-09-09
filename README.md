@@ -4,6 +4,10 @@
 
 The 2024 Elimination website is developed using the SUKIT tech stack (Supabase + SvelteKit). I'm not using Firebase cuz FKIT. Please open a pull request if you want to contribute.
 
+## Getting Started
+
+You'll need access to the Supabase keys in order to test the backend locally. Contact [@ThePickleGawd]("https://github.com/ThePickleGawd) if you'd like to contribute. Copy them into `.env` in the root directory.
+
 ## Developing
 
 Once you've cloned the project and installed dependencies with `npm install`, start a development server:
@@ -17,12 +21,8 @@ npm run dev -- --open
 
 ## Building
 
-To create a production version of your app:
+We have CI/CD setup with Netlify so that pushing to the main branch will build and deploy to the website.
 
-```bash
-npm run build
-```
+## TODOs
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- Make sure it is production ready. See [Supabase email rate limits](https://supabase.com/docs/guides/platform/going-into-prod#auth-rate-limits)
