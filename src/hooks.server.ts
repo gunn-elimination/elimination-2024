@@ -6,15 +6,16 @@ import { createClient } from '@supabase/supabase-js';
 import type { Handle } from '@sveltejs/kit';
 
 export const handle: Handle = async ({ event, resolve }) => {
-	// Client Supabase instance
+	// Anon Supabase instance
 	event.locals.supabase = createSupabaseServerClient({
 		supabaseUrl: PUBLIC_SUPABASE_URL,
 		supabaseKey: PUBLIC_SUPABASE_ANON_KEY,
 		event
 	});
 
-	// Server Supabase instance
+	// Admin Supabase instance
 	event.locals.supabaseAdmin = createClient(PUBLIC_SUPABASE_URL, SUPABASE_SECRET);
+
 	/**
 	 * A convenience helper so we can just call await getSession() instead const { data: { session } } = await supabase.auth.getSession()
 	 */

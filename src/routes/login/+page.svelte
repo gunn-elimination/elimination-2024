@@ -54,9 +54,12 @@
 				</div>
 			{/if}
 		{:else}
-			<div class="text-center text-lg">
-				Check your PAUSD email! (from Supabase - "Your Magic Link")
+			<div class="w-full rounded-lg bg-neutral-800 p-2 text-center text-lg text-neutral-300">
+				Check your PAUSD email for "Your Magic Link"
 			</div>
+			<a href="https://gmail.com" class="mt-4 w-full rounded-lg bg-red-600 p-2 text-center text-lg"
+				>Open Gmail</a
+			>
 		{/if}
 	</form>
 </Container>
