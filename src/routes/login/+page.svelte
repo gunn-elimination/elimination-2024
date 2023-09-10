@@ -33,7 +33,7 @@
 <Container class="flex h-full w-screen items-center justify-center">
 	<form
 		class="flex w-96 flex-col items-center justify-center rounded-lg bg-neutral-700 p-8 shadow-xl md:p-16"
-		on:submit={handleSubmit}
+		on:submit|preventDefault={handleSubmit}
 	>
 		<img src={logo} alt="Gunn Elimination Logo" class="h-24" />
 		<h1 class="mb-8 mt-4 text-3xl font-bold">Gunn Elimination</h1>
