@@ -6,17 +6,17 @@ The 2024 Elimination website is developed using the SUKIT tech stack (Supabase +
 
 ## Getting Started
 
-You'll need access to the Supabase keys in order to test the backend locally. Contact [@ThePickleGawd]("https://github.com/ThePickleGawd) if you'd like to contribute. Copy them into `.env` in the root directory.
+You'll need access to the Supabase keys in order to test the backend locally. Contact [@ThePickleGawd](https://github.com/ThePickleGawd) if you'd like to contribute. Copy them into `.env` in the root directory.
 
 ## Developing
 
-Once you've cloned the project and installed dependencies with `npm install`, start a development server:
-
+Install Dependences
+```bash
+npm install
+```
+Run Development Server
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
 ## Building
