@@ -18,12 +18,23 @@ See [Supabase API Docs](https://supabase.com/dashboard/project/yihigqyfdifpodmng
 ## Developing
 
 Install Dependences
+
 ```bash
 npm install
 ```
+
 Run Development Server
+
 ```bash
 npm run dev
+```
+
+## Generating Types
+
+If you update the database, please generate new types with the following command
+
+```bash
+npx supabase gen types typescript --project-id yihigqyfdifpodmnguxr > src/database.types.ts
 ```
 
 ## Building

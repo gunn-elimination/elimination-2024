@@ -11,26 +11,26 @@ export interface Database {
     Tables: {
       players: {
         Row: {
-          alive: boolean | null
+          alive: boolean
           full_name: string | null
           id: string
-          kill_arr: string[] | null
+          kill_arr: string[]
           role: string
           student_id: string | null
         }
         Insert: {
-          alive?: boolean | null
+          alive?: boolean
           full_name?: string | null
           id: string
-          kill_arr?: string[] | null
+          kill_arr?: string[]
           role?: string
           student_id?: string | null
         }
         Update: {
-          alive?: boolean | null
+          alive?: boolean
           full_name?: string | null
           id?: string
-          kill_arr?: string[] | null
+          kill_arr?: string[]
           role?: string
           student_id?: string | null
         }

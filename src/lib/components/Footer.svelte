@@ -13,7 +13,12 @@
 				<a href="/about" class="mr-4 hover:underline md:mr-6">About</a>
 			</li>
 			<li>
-				<a href="/sec" class="mr-4 hover:underline md:mr-6">SEC</a>
+				<a
+					href="https://gunnsec.org"
+					class="mr-4 hover:underline md:mr-6"
+					target="_blank"
+					rel="noopener noreferrer">SEC</a
+				>
 			</li>
 			<li>
 				<a href="mailto:dl30486@pausd.us" class="hover:underline">Contact</a>

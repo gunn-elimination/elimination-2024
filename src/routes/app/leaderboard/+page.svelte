@@ -1,13 +1,11 @@
 <script>
 	import backgroundImage from '$lib/assets/images/backgrounds/gunn-background.jpg';
 	import pattern from '$lib/assets/images/backgrounds/circuit-board.svg';
+	import { onMount } from 'svelte';
 
-	let challenge = "Wear sunglasses so you don't die";
-	let target = 'Ethan Fu';
-	let rank = 5;
-	let kills = 11;
-
-	let code = '';
+	export let data;
+	let { playerData, leaderboard } = data;
+	$: ({ playerData, leaderboard } = data);
 </script>
 
 <div>
@@ -18,8 +16,8 @@
 	<div class="p-8">
 		<div class="flex">
 			<div class="flex-1 flex-col">
-				<div class="text-sm text-neutral-400">95030486</div>
-				<div class="text-3xl text-white">Dylan Lu</div>
+				<div class="text-sm text-neutral-400">{playerData.student_id}</div>
+				<div class="text-3xl text-white">{playerData.full_name}</div>
 			</div>
 			<div class="mr-4 text-right">
 				<div class=" text-sm text-neutral-400">RANK</div>
@@ -43,17 +41,19 @@
 				</div>
 				<hr class="h-px border-0 bg-neutral-600" />
 				<div class="mt-3 flex flex-col space-y-3">
-					{#each [1, 2, 3, 4, 5, 6, 7] as num}
+					{#each leaderboard as player, rank}
 						<a
-							href="/app/profile/@me"
+							href="/app/profile/{player.student_id}"
 							class={`flex items-end rounded-lg bg-neutral-700/70 px-4 py-2`}
 						>
-							<div class="-ml-4 mr-6 text-xl text-neutral-300">{num}</div>
+							<div class="-ml-4 mr-6 text-xl text-neutral-300">{rank + 1}</div>
 							<div class="flex flex-1 flex-col text-neutral-200">
-								<div class="text-xs text-neutral-400">95030486</div>
-								<div class="text-xl text-neutral-300">Dylan Lu</div>
+								<div class="text-xs text-neutral-400">{player.student_id}</div>
+								<div class="text-xl text-neutral-300">{player.full_name}</div>
 							</div>
-							<div class="w-16 pr-2 text-right text-xl text-neutral-300">13</div>
+							<div class="w-16 pr-2 text-right text-xl text-neutral-300">
+								{player.kill_arr.length}
+							</div>
 						</a>
 					{/each}
 				</div>
