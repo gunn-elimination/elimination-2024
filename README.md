@@ -6,7 +6,11 @@ The 2024 Elimination website is developed using the SUKIT tech stack (Supabase +
 
 ## Getting Started
 
-You'll need access to the Supabase keys in order to test the backend locally. Contact [@ThePickleGawd](https://github.com/ThePickleGawd) if you'd like to contribute. Copy them into `.env` in the root directory.
+> **IMPORTANT:** You'll need some environment variables to connect to the database and develop locally. Contact [@ThePickleGawd](https://github.com/ThePickleGawd) if you'd like to contribute. Copy them into a new file called `.env` in the root directory.
+
+See our [wiki!](https://github.com/gunn-elimination/elimination-2024/wiki)
+
+See [Supabase API Docs](https://supabase.com/dashboard/project/yihigqyfdifpodmnguxr/api) for our project! (requires project access)
 
 ## Developing
 
