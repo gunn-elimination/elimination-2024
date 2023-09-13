@@ -19,13 +19,5 @@ export const load: LayoutLoad = async ({ fetch, data, depends }) => {
 		data: { session }
 	} = await supabase.auth.getSession();
 
-	if (!session) throw new Error('No session');
-
-	const playerTable = await supabase.from('players').select('*').eq('id', session.user.id);
-	const targetTable = await supabase.from('targets').select('*').eq('id', session.user.id);
-
-	if (playerTable.error || targetTable.error || !playerTable.data || !targetTable.data)
-		throw new Error('Error fetching player or target');
-
-	return { supabase, session, playerData: playerTable.data[0], targetData: targetTable.data[0] };
+	return { supabase, session };
 };
