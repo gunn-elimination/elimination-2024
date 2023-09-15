@@ -21,8 +21,12 @@ export default {
 			},
 			fontFamily: {
 				nunito: ['Nunito', 'sans-serif']
+			},
+			skeletonScreen: {
+				color: '#525252',
+				borderRadius: '4px'
 			}
 		}
 	},
-	plugins: []
+	plugins: [require('tailwindcss-skeleton-screen')]
 };

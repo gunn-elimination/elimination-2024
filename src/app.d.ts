@@ -10,9 +10,14 @@ declare global {
 			supabase: SupabaseClient<Database>;
 			supabaseAdmin: SupabaseClient<Database>;
 			getSession(): Promise<Session | null>;
+			getRole(): Promise<string | null>;
 		}
 		interface PageData {
 			session: Session | null;
+			supabase: SupabaseClient<Database>;
+			playerData?: Database['public']['Tables']['players']['Row'];
+			targetData?: { name: string; studentID: string };
+			leaderboard?: Database['public']['Tables']['players']['Row'][];
 		}
 		// interface Error {}
 		// interface Platform {}

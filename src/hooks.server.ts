@@ -26,6 +26,18 @@ export const handle: Handle = async ({ event, resolve }) => {
 		return session;
 	};
 
+	event.locals.getRole = async () => {
+		const session = await event.locals.getSession();
+		const { data } = await event.locals.supabase
+			.from('players')
+			.select('role')
+			.eq('id', session?.user.id);
+
+		if (!data || !data[0]) throw new Error('No role returned from Supabase');
+
+		return data[0].role;
+	};
+
 	return resolve(event, {
 		filterSerializedResponseHeaders(name) {
 			return name === 'content-range';

@@ -46,14 +46,17 @@ export interface Database {
       targets: {
         Row: {
           id: string
+          kill_code: string | null
           target: string | null
         }
         Insert: {
           id: string
+          kill_code?: string | null
           target?: string | null
         }
         Update: {
           id?: string
+          kill_code?: string | null
           target?: string | null
         }
         Relationships: [
