@@ -9,6 +9,40 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
+      kill_feed: {
+        Row: {
+          created_at: string
+          id: number
+          player_id: string | null
+          target_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          player_id?: string | null
+          target_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          player_id?: string | null
+          target_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "kill_feed_player_id_fkey"
+            columns: ["player_id"]
+            referencedRelation: "players"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "kill_feed_target_id_fkey"
+            columns: ["target_id"]
+            referencedRelation: "players"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       players: {
         Row: {
           alive: boolean

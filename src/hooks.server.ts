@@ -31,11 +31,12 @@ export const handle: Handle = async ({ event, resolve }) => {
 		const { data } = await event.locals.supabase
 			.from('players')
 			.select('role')
-			.eq('id', session?.user.id);
+			.eq('id', session?.user.id)
+			.single();
 
-		if (!data || !data[0]) throw new Error('No role returned from Supabase');
+		if (!data) throw new Error('No role returned from Supabase');
 
-		return data[0].role;
+		return data.role;
 	};
 
 	return resolve(event, {

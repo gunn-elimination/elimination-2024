@@ -1,11 +1,24 @@
 <script>
 	import backgroundImage from '$lib/assets/images/backgrounds/gunn-background.jpg';
+	import { onMount } from 'svelte';
 
 	export let data;
 	let { playerData, leaderboard } = data;
 	$: ({ playerData, leaderboard } = data);
 
 	let showLeaderboard = true;
+	let rank = 0;
+	let kills = 0;
+
+	onMount(() => {
+		for (let i = 0; i < leaderboard.length; i++) {
+			if (leaderboard[i].student_id == playerData.student_id) {
+				rank = i + 1;
+				kills = leaderboard[i].kill_arr.length;
+				break;
+			}
+		}
+	});
 </script>
 
 <div>
@@ -21,11 +34,11 @@
 			</div>
 			<div class="mr-4 text-right">
 				<div class=" text-sm text-neutral-400">RANK</div>
-				<div class="text-3xl text-white">1</div>
+				<div class="text-3xl text-white">{rank}</div>
 			</div>
 			<div class="text-right">
 				<div class="text-sm text-neutral-400">KILLS</div>
-				<div class="text-3xl text-white">18</div>
+				<div class="text-3xl text-white">{kills}</div>
 			</div>
 		</div>
 

@@ -13,8 +13,8 @@ declare global {
 			getRole(): Promise<string | null>;
 		}
 		interface PageData {
-			session: Session | null;
-			supabase: SupabaseClient<Database>;
+			session?: Session | null;
+			supabase?: SupabaseClient<Database>;
 			playerData?: Database['public']['Tables']['players']['Row'];
 			targetData?: { name: string; studentID: string };
 			leaderboard?: Database['public']['Tables']['players']['Row'][];

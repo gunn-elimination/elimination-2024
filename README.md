@@ -43,5 +43,5 @@ We have CI/CD setup with Netlify so that pushing to the main branch will build a
 
 ## TODOs
 
-- Make sure it is production ready. See [Supabase email rate limits](https://supabase.com/docs/guides/platform/going-into-prod#auth-rate-limits)
+- Update app.d.ts with correct types
 - Loading indicators to make it feel responsive

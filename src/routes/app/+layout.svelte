@@ -20,9 +20,13 @@
 	];
 
 	onMount(async () => {
-		const { data, error } = await supabase.from('players').select('role').eq('id', session.user.id);
+		const { data, error } = await supabase
+			.from('players')
+			.select('role')
+			.eq('id', session.user.id)
+			.single();
 
-		if (data && data[0].role === 'Admin') {
+		if (data && data.role === 'Admin') {
 			navigation = [...navigation, { to: '/app/admin', icon: SettingsIcon, text: 'Admin' }];
 		}
 	});

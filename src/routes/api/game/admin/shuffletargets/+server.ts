@@ -26,7 +26,7 @@ export const GET = async ({ url, locals: { supabaseAdmin, getSession, getRole } 
 
 	// Update targets table
 	const { error: shuffleError } = await supabaseAdmin.from('targets').upsert(shuffledTargets);
-	if (shuffleError) throw error(500, shuffleError.details);
+	if (shuffleError) throw error(500, 'Error upserting shuffled targets');
 
-	return json({ targetData });
+	return json({ message: 'Success' });
 };
