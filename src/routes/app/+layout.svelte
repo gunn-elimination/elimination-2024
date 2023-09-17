@@ -9,8 +9,8 @@
 	import { onMount } from 'svelte';
 
 	export let data;
-	let { supabase, session } = data;
-	$: ({ supabase, session } = data);
+	let { supabase, session, playerData } = data;
+	$: ({ supabase, session, playerData } = data);
 
 	let navigation = [
 		{ to: '/app', icon: HomeIcon, text: 'Home' },
@@ -19,14 +19,8 @@
 		{ to: '/app/profile/@me', icon: ProfileIcon, text: 'Profile' }
 	];
 
-	onMount(async () => {
-		const { data, error } = await supabase
-			.from('players')
-			.select('role')
-			.eq('id', session.user.id)
-			.single();
-
-		if (data && data.role === 'Admin') {
+	onMount(() => {
+		if (playerData.role === 'Admin') {
 			navigation = [...navigation, { to: '/app/admin', icon: SettingsIcon, text: 'Admin' }];
 		}
 	});

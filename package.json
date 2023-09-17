@@ -17,6 +17,7 @@
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/adapter-netlify": "^1.0.0-next.88",
 		"@sveltejs/kit": "^1.5.0",
+		"@types/qrcode": "^1.5.2",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"autoprefixer": "^10.4.14",
@@ -30,6 +31,7 @@
 		"supabase": "^1.93.0",
 		"svelte": "^3.54.0",
 		"svelte-check": "^3.0.1",
+		"svelte-hero-icons": "^5.0.0",
 		"tailwindcss": "^3.3.2",
 		"tailwindcss-skeleton-screen": "^1.1.0",
 		"tslib": "^2.4.1",
@@ -41,6 +43,8 @@
 		"@supabase/auth-helpers-sveltekit": "^0.10.1",
 		"@supabase/auth-ui-shared": "^0.1.6",
 		"@supabase/auth-ui-svelte": "^0.2.2",
-		"@supabase/supabase-js": "^2.24.0"
+		"@supabase/supabase-js": "^2.24.0",
+		"html5-qrcode": "^2.3.8",
+		"qrcode": "^1.5.3"
 	}
 }

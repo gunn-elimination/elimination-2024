@@ -22,6 +22,11 @@ declare global {
 		// interface Error {}
 		// interface Platform {}
 	}
+	namespace svelteHTML {
+		interface HTMLAttributes<T> {
+			'on:clickoutside'?: () => void;
+		}
+	}
 }
 
 export {};
