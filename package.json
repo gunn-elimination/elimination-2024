@@ -44,6 +44,7 @@
 		"@supabase/auth-ui-shared": "^0.1.6",
 		"@supabase/auth-ui-svelte": "^0.2.2",
 		"@supabase/supabase-js": "^2.24.0",
+		"dayjs": "^1.11.9",
 		"html5-qrcode": "^2.3.8",
 		"qrcode": "^1.5.3"
 	}

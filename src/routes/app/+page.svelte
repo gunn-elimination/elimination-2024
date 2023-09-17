@@ -15,6 +15,11 @@
 	let { playerData, killCode, targetData } = data;
 	$: ({ playerData, killCode, targetData } = data);
 
+	/**
+	 * TODO: Redirect to login if not logged in and at eliminatetarget
+	 * TODO: Kill Feed
+	 */
+
 	// Toggles
 	let showKillCode = false;
 	let showEliminateModal = false;

@@ -28,17 +28,23 @@ export const GET = async ({ url, locals: { supabaseAdmin, getSession, getRole } 
 		throw error(500, 'Error setting players kill_arr to empty' + killArrError.details);
 
 	// Delete all targets
-	const { error: deleteError } = await supabaseAdmin
+	const { error: deleteTargetError } = await supabaseAdmin
 		.from('targets')
 		.delete()
 		.neq('kill_code', 'hackcuzthiswillneverhappen');
-	if (deleteError) throw error(500, 'Error deleting targets');
+	if (deleteTargetError) throw error(500, 'Error deleting targets');
 
 	// Add target entries for all players
 	const { error: insertError } = await supabaseAdmin
 		.from('targets')
 		.insert(playerData.map((player) => ({ id: player.id })));
 	if (insertError) throw error(500, 'Error inserting targets');
+
+	const { error: deleteKillFeedError } = await supabaseAdmin
+		.from('kill_feed')
+		.delete()
+		.neq('id', 0);
+	if (deleteKillFeedError) throw error(500, 'Error deleting kill feed');
 
 	return json({ message: 'Success' });
 };

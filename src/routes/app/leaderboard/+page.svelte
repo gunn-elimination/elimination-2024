@@ -1,20 +1,27 @@
-<script>
+<script lang="ts">
 	import backgroundImage from '$lib/assets/images/backgrounds/gunn-background.jpg';
 	import { onMount } from 'svelte';
+	import { each } from 'svelte/internal';
+	import dayjs from 'dayjs';
+	import relativeTime from 'dayjs/plugin/relativeTime';
 
 	export let data;
-	let { playerData, leaderboard } = data;
-	$: ({ playerData, leaderboard } = data);
+	let { playerData, leaderboard, killFeed } = data;
+	$: ({ playerData, leaderboard, killFeed } = data);
 
 	let showLeaderboard = true;
 	let rank = 0;
-	let kills = 0;
+
+	const dateToRelative = (date: string) => {
+		dayjs.extend(relativeTime);
+		return dayjs(date).fromNow();
+	};
 
 	onMount(() => {
+		// Get our rank from list
 		for (let i = 0; i < leaderboard.length; i++) {
 			if (leaderboard[i].student_id == playerData.student_id) {
 				rank = i + 1;
-				kills = leaderboard[i].kill_arr.length;
 				break;
 			}
 		}
@@ -38,22 +45,22 @@
 			</div>
 			<div class="text-right">
 				<div class="text-sm text-neutral-400">KILLS</div>
-				<div class="text-3xl text-white">{kills}</div>
+				<div class="text-3xl text-white">{playerData.kill_arr.length}</div>
 			</div>
 		</div>
 
-		<div class="mb-16 mt-8 rounded-lg bg-neutral-700 px-8 py-8 shadow-xl">
+		<div class="mb-16 mt-8 rounded-lg bg-neutral-700 px-6 py-8 shadow-xl sm:px-8">
 			<div class="flex justify-between rounded-lg bg-neutral-600 shadow-lg">
 				<button
-					class="h-full w-full rounded-lg px-6 py-3 text-neutral-400 {showLeaderboard &&
+					class="h-full w-full rounded-lg px-2 py-3 text-neutral-400 {showLeaderboard &&
 						'bg-neutral-500 text-white'}"
 					on:click={() => (showLeaderboard = true)}
 				>
 					Leaderboard</button
 				>
 				<button
-					class="h-full w-full rounded-lg px-6 py-3 text-neutral-400 {!showLeaderboard &&
-						'bg-neutral-500 text-white'}"
+					class="h-full w-full rounded-lg px-2 py-3 text-neutral-400 {!showLeaderboard &&
+						'bg-neutral-500 text-white'} "
 					on:click={() => (showLeaderboard = false)}>Kill Feed</button
 				>
 			</div>
@@ -82,15 +89,19 @@
 						{/each}
 					</div>
 				{:else}
-					<div class="text-md rounded-lg bg-neutral-600 px-4 py-2">
-						<div class="flex space-x-2">
-							<div>Dylan Lu</div>
-							<div class=" text-neutral-400">Killed</div>
-						</div>
-						<div class="flex justify-between">
-							<div>Ethan Fu</div>
-							<div class=" text-neutral-400">2 hours ago</div>
-						</div>
+					<div class="flex flex-col space-y-2">
+						{#each killFeed as kill}
+							<div class="text-md rounded-lg bg-neutral-600 px-4 py-2">
+								<div class="flex space-x-2">
+									<div>{kill.player_id?.full_name}</div>
+									<div class=" text-neutral-400">Killed</div>
+								</div>
+								<div class="flex justify-between">
+									<div>{kill.target_id?.full_name}</div>
+									<div class=" text-neutral-400">{dateToRelative(kill.created_at)}</div>
+								</div>
+							</div>
+						{/each}
 					</div>
 				{/if}
 			</div>
