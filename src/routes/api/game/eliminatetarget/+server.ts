@@ -69,8 +69,10 @@ export const GET = async ({ url, locals: { supabaseAdmin, getSession } }) => {
 			.eq('id', session.user.id);
 		if (setNewTargetError) throw error(500, 'Error setting new target');
 
-		throw redirect(303, '/app');
+		// Redirect to app or return success
+		if (url.searchParams.get('redirect') === 'true') throw redirect(303, '/app');
+		else return json({ message: 'Success' });
 	}
 
-	return json({ message: 'Incorrect kill code' });
+	return json({ error: 'Incorrect kill code' });
 };
