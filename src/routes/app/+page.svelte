@@ -6,6 +6,7 @@
 	import { Icon, Clipboard, ClipboardDocumentCheck, XMark } from 'svelte-hero-icons';
 	import { page } from '$app/stores';
 	import {
+		Html5Qrcode,
 		Html5QrcodeScanner,
 		type QrcodeErrorCallback,
 		type QrcodeSuccessCallback
@@ -17,7 +18,6 @@
 
 	/**
 	 * TODO: Redirect to login if not logged in and at eliminatetarget
-	 * TODO: Kill Feed
 	 */
 
 	// Toggles
@@ -30,6 +30,8 @@
 
 	// Error Message
 	let killCodeErrorMessage = '';
+
+	let html5QrCode: Html5Qrcode;
 
 	// Generate QR Code for Kill Code
 	const generateQRCode = (node: HTMLCanvasElement) => {
@@ -78,18 +80,16 @@
 	// Request QR Code Scanner
 	const requestQRCodeScanner = () => {
 		showQRCodeScanner = true;
-		const html5QrCode = new Html5QrcodeScanner(
-			'reader',
-			{ fps: 10, qrbox: { width: 250, height: 250 } },
-			false
-		);
+		html5QrCode = new Html5Qrcode('reader');
+
 		const qrCodeSuccessCallback: QrcodeSuccessCallback = (decodedText, decodedResult) => {
 			const url = new URL(decodedText);
+			console.log(url);
 			if (url.origin === $page.url.origin) {
 				inputKillCode = url.searchParams.get('code')!;
 				submitCode();
 				showQRCodeScanner = false;
-				html5QrCode.clear();
+				html5QrCode.stop();
 			}
 		};
 		const qrCodeErrorCallback: QrcodeErrorCallback = (decodedText, decodedResult) => {
@@ -97,8 +97,15 @@
 		};
 		const config = { fps: 10, qrbox: { width: 250, height: 250 } };
 
-		// If you want to prefer front camera
-		html5QrCode.render(qrCodeSuccessCallback, qrCodeErrorCallback);
+		html5QrCode
+			.start({ facingMode: 'environment' }, config, qrCodeSuccessCallback, qrCodeErrorCallback)
+			.catch((err) => console.error(err));
+	};
+
+	const closeEliminateMenu = () => {
+		showEliminateModal = false;
+		showQRCodeScanner = false;
+		if (html5QrCode.isScanning) html5QrCode.stop();
 	};
 </script>
 
@@ -141,17 +148,10 @@
 			<div
 				class="relative flex w-96 flex-col items-center justify-center rounded-lg bg-neutral-700 px-8 py-8 shadow-xl"
 				use:clickOutside
-				on:clickoutside={() => {
-					showEliminateModal = false;
-					showQRCodeScanner = false;
-				}}
+				on:clickoutside={closeEliminateMenu}
 			>
-				<button
-					class="absolute right-0 top-0 m-4"
-					on:click={() => {
-						showEliminateModal = false;
-						showQRCodeScanner = false;
-					}}><Icon src={XMark} class="h-6 w-6" /></button
+				<button class="absolute right-0 top-0 m-4" on:click={closeEliminateMenu}
+					><Icon src={XMark} class="h-6 w-6" /></button
 				>
 				{#if !showQRCodeScanner}
 					<div class="mt-2 text-center text-2xl text-neutral-100">
