@@ -24,7 +24,7 @@
 	};
 </script>
 
-<Container class="flex h-full w-screen items-center justify-center">
+<div class="flex h-full w-screen items-center justify-center">
 	<form
 		class="flex w-96 flex-col items-center justify-center rounded-lg bg-neutral-700 p-8 shadow-xl md:p-16"
 		on:submit|preventDefault={handleGoogleAuth}
@@ -36,5 +36,5 @@
 			>Login / Sign Up</button
 		>
 	</form>
-</Container>
+</div>
 <Footer />

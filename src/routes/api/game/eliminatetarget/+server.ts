@@ -3,7 +3,7 @@ import { error, json, redirect } from '@sveltejs/kit';
 export const GET = async ({ url, locals: { supabaseAdmin, getSession } }) => {
 	// Check if user is logged in
 	const session = await getSession();
-	if (!session) throw error(401, 'Unauthorized');
+	if (!session) throw redirect(302, '/login');
 
 	// Get the player's target
 	const { data: playerTarget, error: playerTargetError } = await supabaseAdmin

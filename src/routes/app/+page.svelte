@@ -13,6 +13,7 @@
 		type QrcodeSuccessCallback
 	} from 'html5-qrcode';
 	import { invalidateAll } from '$app/navigation';
+	import { Confetti } from 'svelte-confetti';
 
 	export let data;
 	let { playerData, killCode, targetData, leaderboard } = data;
@@ -26,6 +27,8 @@
 	let showKillCode = false;
 	let showEliminateModal = false;
 	let showQRCodeScanner = false;
+	let showConfetti = false;
+	let showKillLoadingSpinner = false;
 
 	// User Input
 	let inputKillCode = '';
@@ -66,19 +69,26 @@
 
 	// Handle Submitting Kill Code
 	const submitCode = async () => {
+		showKillLoadingSpinner = true;
 		const req = await fetch(
 			`${$page.url.origin}/api/game/eliminatetarget?code=${inputKillCode}&redirect=false`
 		);
 		const data = await req.json();
+		showKillLoadingSpinner = false;
 		if (data.error) {
 			killCodeErrorMessage = data.error;
 
 			setTimeout(() => {
 				killCodeErrorMessage = '';
-			}, 3000);
+			}, 5000);
 		} else {
-			invalidateAll(); // refresh on success
-			closeEliminateMenu();
+			showConfetti = true;
+			inputKillCode = '';
+			setTimeout(async () => {
+				showConfetti = false;
+				closeEliminateMenu();
+				await invalidateAll(); // refresh on success
+			}, 2000);
 		}
 	};
 
@@ -110,7 +120,7 @@
 	const closeEliminateMenu = () => {
 		showEliminateModal = false;
 		showQRCodeScanner = false;
-		if (html5QrCode.isScanning) html5QrCode.stop();
+		if (html5QrCode && html5QrCode.isScanning) html5QrCode.stop();
 	};
 </script>
 
@@ -143,6 +153,7 @@
 					{copyText}
 					<Icon src={clipboardIcon} class="h-6 w-6" />
 				</button>
+				<div class="mt-2 text-neutral-400">(or type it manually)</div>
 			</div>
 		</div>
 	{/if}
@@ -172,8 +183,38 @@
 							placeholder="CODE"
 							bind:value={inputKillCode}
 						/>
-						<button class="mt-2 w-64 rounded-lg bg-black px-6 py-3 font-bold text-white"
-							>SUBMIT</button
+						<button
+							class="mt-2 w-64 rounded-lg bg-black px-6 py-3 font-bold text-white disabled:bg-neutral-800"
+							disabled={showKillLoadingSpinner}
+						>
+							{#if showKillLoadingSpinner}
+								<svg
+									class="absolute h-5 w-5 animate-spin text-white"
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+								>
+									<circle
+										class="opacity-25"
+										cx="12"
+										cy="12"
+										r="10"
+										stroke="currentColor"
+										stroke-width="4"
+									/>
+									<path
+										class="opacity-75"
+										fill="currentColor"
+										d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+									/>
+								</svg>
+							{/if}
+							{#if showConfetti}
+								<div class="absolute left-0 flex w-full justify-center">
+									<Confetti x={[-0.5, 0.5]} y={[0.25, 1]} />
+								</div>
+							{/if}
+							SUBMIT</button
 						>
 					</form>
 					{#if killCodeErrorMessage !== ''}

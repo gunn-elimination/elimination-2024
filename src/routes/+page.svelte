@@ -3,7 +3,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 </script>
 
-<Container class="flex h-full w-screen flex-col items-center justify-center space-y-4">
+<div class="flex h-full w-screen flex-col items-center justify-center space-y-4">
 	<h1 class="text-center text-4xl lg:text-5xl">
 		<div>Welcome to</div>
 		<div
@@ -18,5 +18,5 @@
 			>Play!</a
 		>
 	</div>
-</Container>
+</div>
 <Footer />
