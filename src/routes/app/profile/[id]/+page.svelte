@@ -13,7 +13,7 @@
 	};
 </script>
 
-<Container class="flex h-full w-screen flex-col space-y-4 pt-8">
+<Container class="">
 	<!-- <div class="rounded-lg bg-neutral-800 p-8">
 		<div class="flex space-x-4">
 			<div class="flex flex-1 flex-col items-start justify-center">
@@ -45,11 +45,12 @@
 		</div>
 	</div> -->
 	<!-- TODO: only if it's us -->
-	<h1 class="text-3xl">Account</h1>
-	<button class="w-full rounded-lg bg-red-600 px-4 py-2 font-bold text-red-900" on:click={logout}
-		>DELETE ACCOUNT</button
+	<h1 class="mb-8 text-3xl">Account</h1>
+	<button
+		class="mb-4 w-full rounded-lg bg-red-600 px-4 py-2 font-bold text-red-900 md:mb-0 md:w-auto"
+		on:click={logout}>DELETE ACCOUNT</button
 	>
-	<button class="w-full rounded-lg bg-neutral-700 px-4 py-2 font-bold" on:click={logout}
+	<button class="w-full rounded-lg bg-neutral-700 px-4 py-2 font-bold md:w-auto" on:click={logout}
 		>LOGOUT</button
 	>
 </Container>

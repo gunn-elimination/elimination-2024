@@ -23,13 +23,15 @@
 	};
 </script>
 
-<Container class="flex h-full w-screen flex-col space-y-4 pt-8">
-	<h1 class="text-3xl">Admin Dashboard</h1>
-	<button class="w-full rounded-lg bg-red-600 px-4 py-2 font-bold text-red-900" on:click={resetGame}
-		>RESET GAME</button
+<Container class="">
+	<h1 class="mb-8 text-3xl">Admin Dashboard</h1>
+	<button
+		class="mb-4 w-full rounded-lg bg-red-600 px-4 py-2 font-bold text-red-900 md:mb-0 md:w-auto"
+		on:click={resetGame}>RESET GAME</button
 	>
-	<button class="w-full rounded-lg bg-neutral-700 px-4 py-2 font-bold" on:click={shuffleTargets}
-		>SHUFFLE TARGETS</button
+	<button
+		class="w-full rounded-lg bg-neutral-700 px-4 py-2 font-bold md:w-auto"
+		on:click={shuffleTargets}>SHUFFLE TARGETS</button
 	>
 	<div class="text-lg text-green-500">{message}</div>
 	<div class="text-lg text-red-500">{error}</div>

@@ -5,6 +5,7 @@
 	import dayjs from 'dayjs';
 	import relativeTime from 'dayjs/plugin/relativeTime';
 	import { getRank } from '$lib/utils/getRank.js';
+	import Container from '$lib/components/Container.svelte';
 
 	export let data;
 	let { playerData, leaderboard, killFeed } = data;
@@ -23,7 +24,7 @@
 		<div class="absolute h-48 w-full bg-neutral-900/80" />
 		<img src={backgroundImage} alt="background" class="h-48 w-full object-cover object-center" />
 	</div>
-	<div class="p-8">
+	<Container>
 		<div class="flex">
 			<div class="flex-1 flex-col">
 				<div class="text-sm text-neutral-400">{playerData.student_id}</div>
@@ -31,7 +32,9 @@
 			</div>
 			<div class="mr-4 text-right">
 				<div class=" text-sm text-neutral-400">RANK</div>
-				<div class="text-3xl text-white">{getRank(leaderboard, playerData.student_id || '')}</div>
+				<div class="text-3xl text-white">
+					{getRank(leaderboard, playerData.student_id || '')}
+				</div>
 			</div>
 			<div class="text-right">
 				<div class="text-sm text-neutral-400">KILLS</div>
@@ -67,7 +70,7 @@
 								href="/app/profile/{player.student_id}"
 								class={`flex items-end rounded-lg bg-neutral-700/70 px-4 py-2`}
 							>
-								<div class="-ml-4 mr-6 text-xl text-neutral-300">{rank + 1}</div>
+								<div class="-ml-4 mr-6 w-8 text-xl text-neutral-300">{rank + 1}</div>
 								<div class="flex flex-1 flex-col text-neutral-200">
 									<div class="text-xs text-neutral-400">{player.student_id}</div>
 									<div class="text-xl text-neutral-300">{player.full_name}</div>
@@ -96,5 +99,5 @@
 				{/if}
 			</div>
 		</div>
-	</div>
+	</Container>
 </div>

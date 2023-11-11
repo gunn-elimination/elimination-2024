@@ -46,7 +46,7 @@
 			</a>
 		{/each}
 	</div>
-	<div class="flex-1 overflow-x-hidden overflow-y-scroll">
+	<div class="flex-1 overflow-y-scroll">
 		<slot />
 	</div>
 </div>

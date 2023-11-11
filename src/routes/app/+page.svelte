@@ -12,6 +12,7 @@
 		type QrcodeErrorCallback,
 		type QrcodeSuccessCallback
 	} from 'html5-qrcode';
+	import { invalidateAll } from '$app/navigation';
 
 	export let data;
 	let { playerData, killCode, targetData, leaderboard } = data;
@@ -75,6 +76,9 @@
 			setTimeout(() => {
 				killCodeErrorMessage = '';
 			}, 3000);
+		} else {
+			invalidateAll(); // refresh on success
+			closeEliminateMenu();
 		}
 	};
 
@@ -111,13 +115,13 @@
 </script>
 
 <div>
-	<div class="fixed -z-10 h-screen w-full">
+	<div class="fixed -z-10 h-screen w-screen">
 		<div class="absolute h-48 w-full bg-neutral-900/80" />
 		<img src={backgroundImage} alt="background" class="h-48 w-full object-cover object-center" />
 	</div>
 	{#if showKillCode}
 		<div
-			class="fixed z-20 flex h-screen w-screen items-center justify-center bg-neutral-900/70 px-10"
+			class="fixed left-0 top-0 z-20 flex h-screen w-screen items-center justify-center bg-neutral-900/70 px-10"
 		>
 			<div
 				class="relative flex w-96 flex-col items-center justify-center rounded-lg bg-neutral-700 px-8 py-8 shadow-xl"
@@ -144,7 +148,7 @@
 	{/if}
 	{#if showEliminateModal}
 		<div
-			class="fixed z-20 flex h-screen w-screen items-center justify-center bg-neutral-900/70 px-10"
+			class="fixed left-0 top-0 z-20 flex h-screen w-screen items-center justify-center bg-neutral-900/70 px-10"
 		>
 			<div
 				class="relative flex w-96 flex-col items-center justify-center rounded-lg bg-neutral-700 px-8 py-8 shadow-xl"
