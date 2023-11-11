@@ -185,53 +185,59 @@
 		</div>
 	{/if}
 
-	<div class="p-8">
-		<div
-			class="mt-10 rounded-lg border-l-[12px] border-l-blue-600 bg-neutral-700 px-8 py-4 shadow-xl"
-		>
-			<div class="text-sm text-neutral-400">TODAY</div>
-			<div class="text-lg">Wear a hat to stay safe</div>
-		</div>
-		<div class="mt-4 rounded-lg bg-neutral-700 px-8 py-6 shadow-xl">
-			<div class="text-sm text-neutral-300">TARGET</div>
-			<div class="text-3xl">{targetData.name}</div>
-			<div class="mt-6 flex w-full justify-center space-x-2">
-				<button
-					class="w-full rounded-lg bg-red-600 py-2 text-sm font-bold text-red-900 shadow-md"
-					on:click={() => (showEliminateModal = true)}>ELIMINATE</button
-				>
-				<button class="w-full rounded-lg py-2 text-sm text-gray-300">REPORT</button>
-			</div>
-		</div>
-		<div class="mt-4 rounded-lg bg-neutral-700 px-8 py-6 shadow-xl">
-			<div class="text-sm text-neutral-400">YOU</div>
-			<div class="mt-3 flex justify-between space-x-3">
-				<div
-					class="flex flex-1 flex-col items-center justify-center rounded-lg bg-neutral-600 py-2"
-				>
-					<div>RANK</div>
-					<div>{getRank(leaderboard, playerData.student_id || '')}</div>
-				</div>
-				<div
-					class="flex flex-1 flex-col items-center justify-center rounded-lg bg-neutral-600 py-2"
-				>
-					<div>KILLS</div>
-					<div>{playerData.kill_arr.length}</div>
-				</div>
-				<div
-					class="flex flex-1 flex-col items-center justify-center rounded-lg bg-neutral-600 py-2"
-				>
-					{#if playerData.alive}
-						<div class="text-lg font-semibold text-green-500">ALIVE</div>
-					{:else}
-						<div class="text-lg font-semibold text-red-500">DEAD</div>
-					{/if}
-				</div>
-			</div>
-			<button
-				class="mt-3 w-full rounded-lg bg-neutral-800 py-4 text-sm font-bold text-white shadow-md"
-				on:click={() => (showKillCode = true)}>SHOW CODE</button
+	<div class="p-8 lg:flex lg:justify-center">
+		<div class="lg:max-w-2xl lg:flex-1">
+			<div
+				class="mt-10 rounded-r-lg border-l-8 border-l-blue-600 bg-neutral-700 py-4 pl-6 pr-8 shadow-xl"
 			>
+				<div class="text-sm text-neutral-400">TODAY</div>
+				<div class="text-lg">Wear a hat to stay safe</div>
+			</div>
+			<div class="mt-4 rounded-lg bg-neutral-700 px-8 py-6 shadow-xl lg:flex">
+				<div class="lg:w-1/2">
+					<div class="text-sm text-neutral-400">TARGET</div>
+					<div class="text-3xl">{targetData.name}</div>
+				</div>
+				<div class="mt-6 flex w-full items-end justify-center space-x-2 lg:mt-0 lg:w-1/2">
+					<button
+						class="h-10 w-full rounded-lg bg-red-600 text-sm font-bold text-red-900 shadow-md"
+						on:click={() => (showEliminateModal = true)}>ELIMINATE</button
+					>
+					<button class="h-10 w-full rounded-lg text-sm text-gray-300">REPORT</button>
+				</div>
+			</div>
+			<div class="mt-4 rounded-lg bg-neutral-700 px-8 py-6 shadow-xl">
+				<div class="text-sm text-neutral-400">YOU</div>
+				<div class="mt-3 flex space-x-3">
+					<div
+						class="lg:flex-0 flex flex-1 items-center justify-center space-x-2 rounded-lg py-2 shadow-sm outline outline-1 outline-neutral-600 lg:px-6"
+					>
+						<div class="text-neutral-400">RANK</div>
+						<div class=" font-semibold">
+							{getRank(leaderboard, playerData.student_id || '')}
+						</div>
+					</div>
+					<div
+						class="lg:flex-0 flex flex-1 items-center justify-center space-x-2 rounded-lg py-2 shadow-sm outline outline-1 outline-neutral-600 lg:px-6"
+					>
+						<div class="text-neutral-400">KILLS</div>
+						<div class=" font-semibold">{playerData.kill_arr.length}</div>
+					</div>
+					<div
+						class="lg:flex-0 flex flex-1 items-center justify-center rounded-lg py-2 shadow-sm outline outline-1 outline-neutral-600 lg:px-6"
+					>
+						{#if playerData.alive}
+							<div class="text-lg font-semibold text-green-500">ALIVE</div>
+						{:else}
+							<div class="text-lg font-semibold text-red-500">DEAD</div>
+						{/if}
+					</div>
+				</div>
+				<button
+					class="mt-4 w-full rounded-lg bg-neutral-800 py-4 text-sm font-bold text-white shadow-md lg:w-40"
+					on:click={() => (showKillCode = true)}>SHOW CODE</button
+				>
+			</div>
 		</div>
 	</div>
 </div>
