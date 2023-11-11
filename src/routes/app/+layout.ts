@@ -10,5 +10,5 @@ export const load: LayoutLoad = async ({ fetch, depends, parent, data }) => {
 
 	if (playerTable.error || !playerTable.data) throw new Error('Error fetching player or target');
 
-	return { playerData: playerTable.data, cool: 'hi', ...data };
+	return { playerData: playerTable.data, ...data };
 };

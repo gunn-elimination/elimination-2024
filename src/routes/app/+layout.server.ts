@@ -5,6 +5,15 @@ export const load: LayoutServerLoad = async ({ locals: { getSession, supabaseAdm
 	const session = await getSession();
 	if (!session) throw redirect(301, '/login');
 
+	// Fetch leaderboard
+	const { data: allPlayers, error: playerError } = await supabaseAdmin
+		.from('players')
+		.select('full_name, student_id, kill_arr');
+
+	if (!allPlayers || playerError) throw new Error('Error fetching players');
+	allPlayers.sort((a, b) => b.kill_arr.length - a.kill_arr.length);
+
+	// Who is our target?
 	const { data, error } = await supabaseAdmin
 		.from('targets')
 		.select('*')
@@ -15,6 +24,7 @@ export const load: LayoutServerLoad = async ({ locals: { getSession, supabaseAdm
 	const targetID = data.target;
 	const killCode = data.kill_code;
 
+	// Get basic info on our target
 	const { data: targetData, error: targetError } = await supabaseAdmin
 		.from('players')
 		.select('full_name, student_id')
@@ -30,6 +40,7 @@ export const load: LayoutServerLoad = async ({ locals: { getSession, supabaseAdm
 	}
 
 	return {
+		leaderboard: allPlayers,
 		targetData: { name: targetName, studentID: targetStudentID },
 		killCode,
 		session

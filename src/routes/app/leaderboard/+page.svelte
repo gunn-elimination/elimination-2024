@@ -4,28 +4,18 @@
 	import { each } from 'svelte/internal';
 	import dayjs from 'dayjs';
 	import relativeTime from 'dayjs/plugin/relativeTime';
+	import { getRank } from '$lib/utils/getRank.js';
 
 	export let data;
 	let { playerData, leaderboard, killFeed } = data;
 	$: ({ playerData, leaderboard, killFeed } = data);
 
 	let showLeaderboard = true;
-	let rank = 0;
 
 	const dateToRelative = (date: string) => {
 		dayjs.extend(relativeTime);
 		return dayjs(date).fromNow();
 	};
-
-	onMount(() => {
-		// Get our rank from list
-		for (let i = 0; i < leaderboard.length; i++) {
-			if (leaderboard[i].student_id == playerData.student_id) {
-				rank = i + 1;
-				break;
-			}
-		}
-	});
 </script>
 
 <div>
@@ -41,7 +31,7 @@
 			</div>
 			<div class="mr-4 text-right">
 				<div class=" text-sm text-neutral-400">RANK</div>
-				<div class="text-3xl text-white">{rank}</div>
+				<div class="text-3xl text-white">{getRank(leaderboard, playerData.student_id || '')}</div>
 			</div>
 			<div class="text-right">
 				<div class="text-sm text-neutral-400">KILLS</div>

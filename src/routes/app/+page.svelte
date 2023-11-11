@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import QRCode from 'qrcode';
 	import { clickOutside } from '$lib/utils/clickOutside.js';
+	import { getRank } from '$lib/utils/getRank.js';
 	import { Icon, Clipboard, ClipboardDocumentCheck, XMark } from 'svelte-hero-icons';
 	import { page } from '$app/stores';
 	import {
@@ -13,8 +14,8 @@
 	} from 'html5-qrcode';
 
 	export let data;
-	let { playerData, killCode, targetData } = data;
-	$: ({ playerData, killCode, targetData } = data);
+	let { playerData, killCode, targetData, leaderboard } = data;
+	$: ({ playerData, killCode, targetData, leaderboard } = data);
 
 	/**
 	 * TODO: Redirect to login if not logged in and at eliminatetarget
@@ -183,10 +184,16 @@
 			</div>
 		</div>
 	{/if}
+
 	<div class="p-8">
-		<div class="text-3xl text-white">Target</div>
-		<div class="mt-8 rounded-lg bg-neutral-700 px-8 py-6 shadow-xl">
-			<div class="text-sm text-neutral-300">{targetData.studentID}</div>
+		<div
+			class="mt-10 rounded-lg border-l-[12px] border-l-blue-600 bg-neutral-700 px-8 py-4 shadow-xl"
+		>
+			<div class="text-sm text-neutral-400">TODAY</div>
+			<div class="text-lg">Wear a hat to stay safe</div>
+		</div>
+		<div class="mt-4 rounded-lg bg-neutral-700 px-8 py-6 shadow-xl">
+			<div class="text-sm text-neutral-300">TARGET</div>
 			<div class="text-3xl">{targetData.name}</div>
 			<div class="mt-6 flex w-full justify-center space-x-2">
 				<button
@@ -198,14 +205,33 @@
 		</div>
 		<div class="mt-4 rounded-lg bg-neutral-700 px-8 py-6 shadow-xl">
 			<div class="text-sm text-neutral-400">YOU</div>
+			<div class="mt-3 flex justify-between space-x-3">
+				<div
+					class="flex flex-1 flex-col items-center justify-center rounded-lg bg-neutral-600 py-2"
+				>
+					<div>RANK</div>
+					<div>{getRank(leaderboard, playerData.student_id || '')}</div>
+				</div>
+				<div
+					class="flex flex-1 flex-col items-center justify-center rounded-lg bg-neutral-600 py-2"
+				>
+					<div>KILLS</div>
+					<div>{playerData.kill_arr.length}</div>
+				</div>
+				<div
+					class="flex flex-1 flex-col items-center justify-center rounded-lg bg-neutral-600 py-2"
+				>
+					{#if playerData.alive}
+						<div class="text-lg font-semibold text-green-500">ALIVE</div>
+					{:else}
+						<div class="text-lg font-semibold text-red-500">DEAD</div>
+					{/if}
+				</div>
+			</div>
 			<button
 				class="mt-3 w-full rounded-lg bg-neutral-800 py-4 text-sm font-bold text-white shadow-md"
 				on:click={() => (showKillCode = true)}>SHOW CODE</button
 			>
-		</div>
-		<div class="mt-4 rounded-lg border-l-8 border-l-blue-600 bg-neutral-700 px-8 py-6 shadow-xl">
-			<div class="text-sm text-neutral-400">TODAY</div>
-			<div class="text-lg">Wear a hat to stay safe</div>
 		</div>
 	</div>
 </div>
