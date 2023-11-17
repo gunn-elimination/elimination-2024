@@ -279,7 +279,7 @@
 					</div>
 				</div>
 				<button
-					class="mt-4 w-full rounded-lg bg-neutral-800 py-4 text-sm font-bold text-white shadow-md lg:w-40"
+					class="mt-4 w-full rounded-lg bg-neutral-800 py-3 text-sm font-bold text-white shadow-md lg:w-40"
 					on:click={() => (showKillCode = true)}>SHOW CODE</button
 				>
 			</div>
