@@ -60,7 +60,7 @@
 			<div class="mt-6">
 				{#if showLeaderboard}
 					<div class="flex px-4 py-2 text-neutral-400">
-						<div class="ml-4 flex-1 text-sm text-neutral-500">NAME</div>
+						<div class="ml-10 flex-1 text-sm text-neutral-500">NAME</div>
 						<div class="w-16 text-right text-sm text-neutral-500">KILLS</div>
 					</div>
 					<hr class="h-px border-0 bg-neutral-600" />
@@ -68,12 +68,17 @@
 						{#each leaderboard as player, rank}
 							<a
 								href="/app/profile/{player.student_id}"
-								class={`flex items-end rounded-lg bg-neutral-700/70 px-4 py-2`}
+								class={`flex items-center rounded-lg bg-neutral-600 px-4 py-2`}
 							>
-								<div class="-ml-4 mr-6 w-8 text-xl text-neutral-300">{rank + 1}</div>
+								<div class="mr-2 w-8 text-xl text-neutral-300">{rank + 1}</div>
 								<div class="flex flex-1 flex-col text-neutral-200">
-									<div class="text-xs text-neutral-400">{player.student_id}</div>
-									<div class="text-xl text-neutral-300">{player.full_name}</div>
+									<div class="-mb-1 text-xs text-neutral-400">{player.student_id}</div>
+									<div
+										class="text-xl text-neutral-300 {!player.alive &&
+											'text-neutral-500 line-through'}"
+									>
+										{player.full_name}
+									</div>
 								</div>
 								<div class="w-16 pr-2 text-right text-xl text-neutral-300">
 									{player.kill_arr.length}
@@ -82,9 +87,9 @@
 						{/each}
 					</div>
 				{:else}
-					<div class="flex flex-col space-y-2">
+					<div class="flex flex-col space-y-3">
 						{#each killFeed as kill}
-							<div class="text-md rounded-lg bg-neutral-600 px-4 py-2">
+							<div class="text-md rounded-lg bg-neutral-600 px-4 py-2 text-neutral-300">
 								<div class="flex space-x-2">
 									<div>{kill.player_id?.full_name}</div>
 									<div class=" text-neutral-400">Killed</div>

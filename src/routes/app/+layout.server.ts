@@ -8,7 +8,7 @@ export const load: LayoutServerLoad = async ({ locals: { getSession, supabaseAdm
 	// Fetch leaderboard
 	const { data: allPlayers, error: playerError } = await supabaseAdmin
 		.from('players')
-		.select('full_name, student_id, kill_arr');
+		.select('full_name, student_id, kill_arr, alive');
 
 	if (!allPlayers || playerError) throw new Error('Error fetching players');
 	allPlayers.sort((a, b) => b.kill_arr.length - a.kill_arr.length);
@@ -19,10 +19,9 @@ export const load: LayoutServerLoad = async ({ locals: { getSession, supabaseAdm
 		.select('*')
 		.eq('id', session.user.id)
 		.single();
-	if (!data || error) throw new Error('Error fetching target');
 
-	const targetID = data.target;
-	const killCode = data.kill_code;
+	const targetID = data?.target;
+	const killCode = data?.kill_code;
 
 	// Get basic info on our target
 	const { data: targetData, error: targetError } = await supabaseAdmin

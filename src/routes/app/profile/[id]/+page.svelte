@@ -46,10 +46,10 @@
 	</div> -->
 	<!-- TODO: only if it's us -->
 	<h1 class="mb-8 text-3xl">Account</h1>
-	<button
+	<!-- <button
 		class="mb-4 w-full rounded-lg bg-red-600 px-4 py-2 font-bold text-red-900 md:mb-0 md:w-auto"
 		on:click={logout}>DELETE ACCOUNT</button
-	>
+	> -->
 	<button class="w-full rounded-lg bg-neutral-700 px-4 py-2 font-bold md:w-auto" on:click={logout}
 		>LOGOUT</button
 	>
