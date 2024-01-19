@@ -18,6 +18,7 @@ declare global {
 			playerData?: Database['public']['Tables']['players']['Row'];
 			targetData?: { name: string; studentID: string };
 			leaderboard?: Database['public']['Tables']['players']['Row'][];
+			gameMessage?: string;
 		}
 		// interface Error {}
 		// interface Platform {}
