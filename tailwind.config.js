@@ -28,5 +28,5 @@ export default {
 			}
 		}
 	},
-	plugins: [require('tailwindcss-skeleton-screen')]
+	plugins: [require('tailwindcss-skeleton-screen'), require('tailwindcss-safe-area')]
 };

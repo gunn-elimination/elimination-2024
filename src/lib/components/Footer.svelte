@@ -1,4 +1,4 @@
-<footer class="mt-4 w-screen">
+<footer class="mt-4 w-screen pb-safe">
 	<div class="mx-auto w-full max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
 		<span class="text-sm text-gray-400 sm:text-center"
 			>Made by <a href="https://github.com/ThePickleGawd" class="hover:underline">Dylan Lu</a></span

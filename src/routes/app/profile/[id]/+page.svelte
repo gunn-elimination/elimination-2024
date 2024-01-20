@@ -50,7 +50,8 @@
 		class="mb-4 w-full rounded-lg bg-red-600 px-4 py-2 font-bold text-red-900 md:mb-0 md:w-auto"
 		on:click={logout}>DELETE ACCOUNT</button
 	> -->
-	<button class="w-full rounded-lg bg-neutral-700 px-4 py-2 font-bold md:w-auto" on:click={logout}
-		>LOGOUT</button
+	<button
+		class="w-full rounded-lg bg-neutral-700 px-4 py-2 font-bold shadow-lg md:w-auto"
+		on:click={logout}>LOGOUT</button
 	>
 </Container>

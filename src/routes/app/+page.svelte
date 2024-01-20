@@ -14,6 +14,7 @@
 	} from 'html5-qrcode';
 	import { invalidateAll } from '$app/navigation';
 	import { Confetti } from 'svelte-confetti';
+	import { getTodaysChallenge } from '$lib/utils/getTodaysChallenge.js';
 
 	export let data;
 	let { playerData, killCode, targetData, leaderboard, gameMessage } = data;
@@ -244,7 +245,7 @@
 					: 'mt-10'} rounded-r-lg border-l-8 border-l-blue-600 bg-neutral-700 py-4 pl-6 pr-8 shadow-xl"
 			>
 				<div class="text-sm text-neutral-400">TODAY</div>
-				<div class="text-lg">Wear a hat to stay safe</div>
+				<div class="text-lg">{getTodaysChallenge()}</div>
 			</div>
 			<div class="mt-4 rounded-lg bg-neutral-700 px-8 py-6 shadow-xl lg:flex">
 				<div class="lg:w-1/2">
