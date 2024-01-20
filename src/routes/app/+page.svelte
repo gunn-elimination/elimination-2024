@@ -16,8 +16,8 @@
 	import { Confetti } from 'svelte-confetti';
 
 	export let data;
-	let { playerData, killCode, targetData, leaderboard } = data;
-	$: ({ playerData, killCode, targetData, leaderboard } = data);
+	let { playerData, killCode, targetData, leaderboard, gameMessage } = data;
+	$: ({ playerData, killCode, targetData, leaderboard, gameMessage } = data);
 
 	/**
 	 * TODO: Redirect to login if not logged in and at eliminatetarget
@@ -232,8 +232,16 @@
 
 	<div class="p-8 lg:flex lg:justify-center">
 		<div class="lg:max-w-2xl lg:flex-1">
+			{#if gameMessage}
+				<div class="mt-10 rounded-lg bg-red-500/90 px-8 py-4 shadow-xl">
+					<div class="text-sm text-neutral-300">MESSAGE</div>
+					<div class="text-lg">{gameMessage}</div>
+				</div>
+			{/if}
 			<div
-				class="mt-10 rounded-r-lg border-l-8 border-l-blue-600 bg-neutral-700 py-4 pl-6 pr-8 shadow-xl"
+				class="{gameMessage
+					? 'mt-4'
+					: 'mt-10'} rounded-r-lg border-l-8 border-l-blue-600 bg-neutral-700 py-4 pl-6 pr-8 shadow-xl"
 			>
 				<div class="text-sm text-neutral-400">TODAY</div>
 				<div class="text-lg">Wear a hat to stay safe</div>

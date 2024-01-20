@@ -7,8 +7,9 @@ export const load: LayoutLoad = async ({ fetch, depends, parent, data }) => {
 	if (!session) throw new Error('No session found');
 
 	const playerTable = await supabase.from('players').select('*').eq('id', session.user.id).single();
+	const gameMessage = await supabase.from('message').select('*').single();
 
 	if (playerTable.error || !playerTable.data) throw new Error('Error fetching player or target');
 
-	return { playerData: playerTable.data, ...data };
+	return { playerData: playerTable.data, gameMessage: gameMessage.data?.message, ...data };
 };
