@@ -1,4 +1,4 @@
-<footer class="mt-4 w-screen pb-safe">
+<footer class="fixed bottom-0 w-screen">
 	<div class="mx-auto w-full max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
 		<span class="text-sm text-gray-400 sm:text-center"
 			>Made by <a href="https://github.com/ThePickleGawd" class="hover:underline">Dylan Lu</a></span
@@ -11,15 +11,7 @@
 				<a href="/about" class="mr-4 hover:underline md:mr-6">About</a>
 			</li>
 			<li>
-				<a
-					href="https://gunnsec.org"
-					class="mr-4 hover:underline md:mr-6"
-					target="_blank"
-					rel="noopener noreferrer">SEC</a
-				>
-			</li>
-			<li>
-				<a href="mailto:dl30486@pausd.us" class="hover:underline">Contact</a>
+				<a href="/contact" class="hover:underline">Contact</a>
 			</li>
 		</ul>
 	</div>
