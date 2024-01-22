@@ -12,6 +12,8 @@
 	let manageError = '';
 
 	const resetGame = () => {
+		if (!confirm('DANGER: Reset game?')) return;
+
 		fetch($page.url.origin + '/api/game/admin/resetgame')
 			.then(async (res) => {
 				if (!res.ok) throw new Error(await res.text());
@@ -21,6 +23,8 @@
 	};
 
 	const shuffleTargets = () => {
+		if (!confirm('DANGER: Shuffle targets?')) return;
+
 		fetch($page.url.origin + '/api/game/admin/shuffletargets')
 			.then(async (res) => {
 				if (!res.ok) throw new Error(await res.text());
