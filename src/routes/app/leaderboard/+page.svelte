@@ -1,22 +1,15 @@
 <script lang="ts">
 	import backgroundImage from '$lib/assets/images/backgrounds/gunn-background.jpg';
 	import { onMount } from 'svelte';
-	import { each } from 'svelte/internal';
-	import dayjs from 'dayjs';
-	import relativeTime from 'dayjs/plugin/relativeTime';
 	import { getRank } from '$lib/utils/getRank.js';
 	import Container from '$lib/components/Container.svelte';
+	import { dateToRelative } from '$lib/utils/dateToRelative.js';
 
 	export let data;
 	let { playerData, leaderboard, killFeed } = data;
 	$: ({ playerData, leaderboard, killFeed } = data);
 
 	let showLeaderboard = true;
-
-	const dateToRelative = (date: string) => {
-		dayjs.extend(relativeTime);
-		return dayjs(date).fromNow();
-	};
 </script>
 
 <div>
@@ -66,21 +59,23 @@
 					<hr class="h-px border-0 bg-neutral-600" />
 					<div class="mt-3 flex flex-col space-y-3">
 						{#each leaderboard as player, rank}
-							<div class={`flex items-center rounded-lg bg-neutral-600 px-4 py-2`}>
-								<div class="mr-2 w-8 text-xl text-neutral-300">{rank + 1}</div>
-								<div class="flex flex-1 flex-col text-neutral-200">
+							<a
+								href="/app/profile/{player.student_id}"
+								class={`flex items-center rounded-lg bg-neutral-600  text-neutral-300 ${
+									!player.alive && 'bg-neutral-600/50 text-neutral-500'
+								}  px-4 py-2 hover:bg-neutral-600/70`}
+							>
+								<div class="mr-2 w-8 text-xl">{rank + 1}</div>
+								<div class="flex flex-1 flex-col">
 									<div class="-mb-1 text-xs text-neutral-400">{player.student_id}</div>
-									<div
-										class="text-xl text-neutral-300 {!player.alive &&
-											'text-neutral-500 line-through'}"
-									>
+									<div class="text-xl {!player.alive && 'line-through'}">
 										{player.full_name}
 									</div>
 								</div>
-								<div class="w-16 pr-2 text-right text-xl text-neutral-300">
+								<div class="w-16 pr-2 text-right text-xl">
 									{player.kill_arr.length}
 								</div>
-							</div>
+							</a>
 						{/each}
 					</div>
 				{:else}
@@ -88,11 +83,15 @@
 						{#each killFeed as kill}
 							<div class="text-md rounded-lg bg-neutral-600 px-4 py-2 text-neutral-300">
 								<div class="flex space-x-2">
-									<div>{kill.player_id?.full_name}</div>
+									<a class="hover:underline" href="/app/profile/{kill.player_id?.student_id}"
+										>{kill.player_id?.full_name}</a
+									>
 									<div class=" text-neutral-400">Killed</div>
 								</div>
-								<div class="flex justify-between">
-									<div>{kill.target_id?.full_name}</div>
+								<div class="flex flex-col justify-between md:flex-row">
+									<a class="hover:underline" href="/app/profile/{kill.target_id?.student_id}"
+										>{kill.target_id?.full_name}</a
+									>
 									<div class=" text-neutral-400">{dateToRelative(kill.created_at)}</div>
 								</div>
 							</div>

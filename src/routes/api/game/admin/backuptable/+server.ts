@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import JSZip from 'jszip';
-import { format } from 'date-fns';
+import { format } from 'date-fns'; // TODO: make this work with dayjs cuz I don't need two date packages
 
 export const GET = async ({ locals: { supabaseAdmin, getRole } }) => {
 	const role = await getRole();
