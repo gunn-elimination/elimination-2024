@@ -1,6 +1,8 @@
 <script>
 	import Container from '$lib/components/Container.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+
+	import calendarImage from '$lib/assets/images/calendar.png';
 </script>
 
 <Container class="h-full w-screen">
@@ -18,6 +20,7 @@
 			target="_blank"
 			class="rounded-lg px-4 py-2 underline hover:text-neutral-400">All Rules and Game Calendar</a
 		>
+		<img src={calendarImage} alt="calendar" />
 	</div>
 </Container>
 <Footer />

@@ -24,7 +24,7 @@
 				<div class="text-3xl text-white">{playerData.full_name}</div>
 			</div>
 			<div class="mr-4 text-right">
-				<div class=" text-sm text-neutral-400">RANK</div>
+				<div class="text-sm text-neutral-400">RANK</div>
 				<div class="text-3xl text-white">
 					{getRank(leaderboard, playerData.student_id || '')}
 				</div>
@@ -53,7 +53,7 @@
 			<div class="mt-6">
 				{#if showLeaderboard}
 					<div class="flex px-4 py-2 text-neutral-400">
-						<div class="ml-10 flex-1 text-sm text-neutral-500">NAME</div>
+						<div class="ml-12 flex-1 text-sm text-neutral-500">NAME</div>
 						<div class="w-16 text-right text-sm text-neutral-500">KILLS</div>
 					</div>
 					<hr class="h-px border-0 bg-neutral-600" />
@@ -65,7 +65,7 @@
 									!player.alive && 'bg-neutral-600/50 text-neutral-500'
 								}  px-4 py-2 hover:bg-neutral-600/70`}
 							>
-								<div class="mr-2 w-8 text-xl">{rank + 1}</div>
+								<div class="mr-4 w-8 text-center text-xl">{rank + 1}</div>
 								<div class="flex flex-1 flex-col">
 									<div class="-mb-1 text-xs text-neutral-400">{player.student_id}</div>
 									<div class="text-xl {!player.alive && 'line-through'}">
