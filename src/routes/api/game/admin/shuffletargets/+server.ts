@@ -1,7 +1,7 @@
 import { error, json } from '@sveltejs/kit';
 import type { Database } from '../../../../../database.types.js';
 
-export const GET = async ({ url, locals: { supabaseAdmin, getSession, getRole } }) => {
+export const POST = async ({ url, locals: { supabaseAdmin, getSession, getRole } }) => {
 	// Check if user is admin
 	const role = await getRole();
 	if (role !== 'Admin') {

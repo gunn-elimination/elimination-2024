@@ -246,8 +246,8 @@
 		<div class="lg:max-w-2xl lg:flex-1">
 			{#if gameMessage}
 				<div class="mt-10 rounded-lg bg-red-500/90 px-8 py-4 shadow-xl">
-					<div class="text-sm text-neutral-300">MESSAGE</div>
-					<div class="text-lg">{gameMessage}</div>
+					<div class="text-sm text-red-200">MESSAGE</div>
+					<div class="text-sm sm:text-lg">{gameMessage}</div>
 				</div>
 			{/if}
 			<div
@@ -256,7 +256,7 @@
 					: 'mt-10'} rounded-r-lg border-l-8 border-l-blue-600 bg-neutral-700 py-4 pl-6 pr-8 shadow-xl"
 			>
 				<div class="text-sm text-neutral-400">TODAY</div>
-				<div class="text-lg">{getTodaysChallenge()}</div>
+				<div class="text-sm text-neutral-200 sm:text-lg">{getTodaysChallenge()}</div>
 			</div>
 			<div class="mt-4 rounded-lg bg-neutral-700 px-8 py-6 shadow-xl lg:flex">
 				<div class="lg:w-1/2">
@@ -265,10 +265,13 @@
 				</div>
 				<div class="mt-6 flex w-full items-end justify-center space-x-2 lg:mt-0 lg:w-1/2">
 					<button
-						class="h-10 w-full rounded-lg bg-red-600 text-sm font-bold text-red-900 shadow-md"
+						class="h-10 w-full rounded-lg bg-red-600 text-sm font-bold text-red-900 shadow-md hover:bg-red-600/80"
 						on:click={() => (showEliminateModal = true)}>ELIMINATE</button
 					>
-					<button class="h-10 w-full rounded-lg text-sm text-gray-300">REPORT</button>
+					<a
+						class="flex h-10 w-full items-center justify-center rounded-lg text-sm text-gray-300 hover:bg-neutral-600/80"
+						href="/contact">REPORT</a
+					>
 				</div>
 			</div>
 			<div class="mt-4 rounded-lg bg-neutral-700 px-8 py-6 shadow-xl">
@@ -299,7 +302,7 @@
 					</div>
 				</div>
 				<button
-					class="mt-4 w-full rounded-lg bg-neutral-800 py-3 text-sm font-bold text-white shadow-md lg:w-40"
+					class="mt-4 w-full rounded-lg bg-neutral-800 py-3 text-sm font-bold text-white shadow-md hover:bg-neutral-800/80 lg:w-40"
 					on:click={() => (showKillCode = true)}>SHOW CODE</button
 				>
 			</div>

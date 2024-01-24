@@ -14,7 +14,7 @@
 	const resetGame = () => {
 		if (!confirm('DANGER: Reset game?')) return;
 
-		fetch($page.url.origin + '/api/game/admin/resetgame')
+		fetch($page.url.origin + '/api/game/admin/resetgame', { method: 'POST' })
 			.then(async (res) => {
 				if (!res.ok) throw new Error(await res.text());
 				dangerZoneMessage = 'success!';
@@ -25,7 +25,7 @@
 	const shuffleTargets = () => {
 		if (!confirm('DANGER: Shuffle targets?')) return;
 
-		fetch($page.url.origin + '/api/game/admin/shuffletargets')
+		fetch($page.url.origin + '/api/game/admin/shuffletargets', { method: 'POST' })
 			.then(async (res) => {
 				if (!res.ok) throw new Error(await res.text());
 				dangerZoneMessage = 'success!';
