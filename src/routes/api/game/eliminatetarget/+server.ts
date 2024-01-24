@@ -1,9 +1,12 @@
 import { error, json, redirect } from '@sveltejs/kit';
 
 export const GET = async ({ url, locals: { supabaseAdmin, getSession } }) => {
+	// Get code from url
+	const code = url.searchParams.get('code');
+
 	// Check if user is logged in
 	const session = await getSession();
-	if (!session) throw redirect(302, '/login');
+	if (!session) throw redirect(302, `/login${code ? `?killcode=${code}` : ''}`);
 
 	// Get the player's target
 	const { data: playerTarget, error: playerTargetError } = await supabaseAdmin
@@ -28,8 +31,6 @@ export const GET = async ({ url, locals: { supabaseAdmin, getSession } }) => {
 
 	// Check if the kill code is correct
 	const killCode = targetData.kill_code;
-	const code = url.searchParams.get('code');
-
 	if (killCode === code) {
 		// Delete the target's entry in the targets table
 		const { error: deleteError } = await supabaseAdmin.from('targets').delete().eq('id', targetID);

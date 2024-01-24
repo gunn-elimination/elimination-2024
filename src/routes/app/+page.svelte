@@ -39,6 +39,14 @@
 
 	let html5QrCode: Html5Qrcode;
 
+	onMount(async () => {
+		const loginkillcode = localStorage.getItem('loginkillcode');
+		if (loginkillcode) {
+			inputKillCode = loginkillcode;
+			await submitCode();
+		}
+	});
+
 	// Generate QR Code for Kill Code
 	const generateQRCode = (node: HTMLCanvasElement) => {
 		QRCode.toCanvas(
