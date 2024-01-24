@@ -43,6 +43,7 @@
 		const loginkillcode = localStorage.getItem('loginkillcode');
 		if (loginkillcode) {
 			inputKillCode = loginkillcode;
+			localStorage.removeItem('loginkillcode');
 			await submitCode();
 		}
 	});
@@ -52,6 +53,7 @@
 		QRCode.toCanvas(
 			node,
 			`${$page.url.origin}/api/game/eliminatetarget?code=${killCode}&redirect=true`,
+			// `https://elimination.gunn.one/api/game/eliminatetarget?code=${'12028'}&redirect=true`,
 			{ width: 256 },
 			(error: any) => {
 				if (error) console.error(error);
@@ -138,6 +140,12 @@
 		<div class="absolute h-48 w-full bg-neutral-900/80" />
 		<img src={backgroundImage} alt="background" class="h-48 w-full object-cover object-center" />
 	</div>
+	{#if showConfetti}
+		<div class="absolute left-0 top-1/2 z-30 flex w-full -translate-y-1/2 justify-center">
+			<Confetti x={[-0.5, 0.5]} y={[0.25, 1]} />
+		</div>
+	{/if}
+
 	{#if showKillCode}
 		<div
 			class="fixed left-0 top-0 z-20 flex h-screen w-screen items-center justify-center bg-neutral-900/70 px-10"
@@ -217,11 +225,6 @@
 										d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
 									/>
 								</svg>
-							{/if}
-							{#if showConfetti}
-								<div class="absolute left-0 flex w-full justify-center">
-									<Confetti x={[-0.5, 0.5]} y={[0.25, 1]} />
-								</div>
 							{/if}
 							SUBMIT</button
 						>
