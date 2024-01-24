@@ -64,7 +64,7 @@
 
 		{#if playerData.student_id == profileID}
 			<button
-				class="mt-4 w-full rounded-lg bg-red-600 px-4 py-2 font-bold text-red-900 shadow-lg md:w-auto"
+				class="mb-16 mt-4 w-full rounded-lg bg-red-600 px-4 py-2 font-bold text-red-900 shadow-lg md:w-auto"
 				on:click={logout}>LOGOUT</button
 			>
 		{/if}

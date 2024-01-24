@@ -53,7 +53,7 @@
 		QRCode.toCanvas(
 			node,
 			`${$page.url.origin}/api/game/eliminatetarget?code=${killCode}&redirect=true`,
-			// `https://elimination.gunn.one/api/game/eliminatetarget?code=${'12028'}&redirect=true`,
+			// `https://elimination.gunn.one/api/game/eliminatetarget?code=${''}&redirect=true`,
 			{ width: 256 },
 			(error: any) => {
 				if (error) console.error(error);
