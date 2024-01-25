@@ -1,6 +1,11 @@
 import { json, error } from '@sveltejs/kit';
 
 export const POST = async ({ url, locals: { supabaseAdmin, getSession, getRole }, request }) => {
+	const role = await getRole();
+	if (role !== 'Admin') {
+		throw error(403, { message: 'Unauthorized' });
+	}
+
 	const { student_id } = await request.json();
 
 	// killedPlayer = the player we're force killing
@@ -71,5 +76,5 @@ export const POST = async ({ url, locals: { supabaseAdmin, getSession, getRole }
 	if (setNewTargetError) throw error(500, 'Error setting new target');
 
 	// Redirect to app or return success
-	return json({ mesage: 'Success' });
+	return json({ mesage: 'Successfully force killed player' });
 };

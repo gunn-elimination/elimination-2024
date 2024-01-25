@@ -46,5 +46,5 @@ export const POST = async ({ url, locals: { supabaseAdmin, getSession, getRole }
 		.neq('id', 0);
 	if (deleteKillFeedError) throw error(500, 'Error deleting kill feed');
 
-	return json({ message: 'Success' });
+	return json({ message: 'Successffully reset game' });
 };

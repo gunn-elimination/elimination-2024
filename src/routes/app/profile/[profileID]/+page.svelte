@@ -26,8 +26,12 @@
 	<Container class="">
 		<div class="flex">
 			<div class="flex-1 flex-col">
-				<div class="text-sm text-neutral-400">{profileData.student_id}</div>
-				<div class="text-3xl text-white">{profileData.full_name}</div>
+				<div class="text-sm text-neutral-400">
+					{profileData.student_id}
+				</div>
+				<div class="text-3xl {!profileData.alive ? ' text-neutral-500 line-through' : ''}">
+					{profileData.full_name}
+				</div>
 			</div>
 			<div class="mr-4 text-right">
 				<div class=" text-sm text-neutral-400">RANK</div>

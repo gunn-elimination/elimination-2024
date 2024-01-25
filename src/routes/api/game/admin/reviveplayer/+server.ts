@@ -1,6 +1,11 @@
 import { json, error } from '@sveltejs/kit';
 
-export const POST = async ({ url, locals: { supabaseAdmin }, request }) => {
+export const POST = async ({ url, locals: { supabaseAdmin, getRole }, request }) => {
+	const role = await getRole();
+	if (role !== 'Admin') {
+		throw error(403, { message: 'Unauthorized' });
+	}
+
 	const { student_id } = await request.json();
 
 	// revivedPlayer = player to revive

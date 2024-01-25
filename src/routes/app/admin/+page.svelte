@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Container from '$lib/components/Container.svelte';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
@@ -17,7 +17,7 @@
 		fetch($page.url.origin + '/api/game/admin/resetgame', { method: 'POST' })
 			.then(async (res) => {
 				if (!res.ok) throw new Error(await res.text());
-				dangerZoneMessage = 'success!';
+				dangerZoneMessage = 'success reset!';
 			})
 			.catch((err) => (dangerZoneError = err));
 	};
@@ -28,7 +28,7 @@
 		fetch($page.url.origin + '/api/game/admin/shuffletargets', { method: 'POST' })
 			.then(async (res) => {
 				if (!res.ok) throw new Error(await res.text());
-				dangerZoneMessage = 'success!';
+				dangerZoneMessage = 'success shuffle!';
 			})
 			.catch((err) => (dangerZoneError = err));
 	};
@@ -80,6 +80,22 @@
 			console.error('Error:', error);
 		}
 	};
+
+	const killCutoff: (kill_requirement: number) => void = (kill_requirement) => {
+		if (!confirm(`DANGER: Set kill cutoff to ${kill_requirement}?`)) return;
+		fetch($page.url.origin + '/api/game/admin/playercutoff', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ kill_requirement })
+		})
+			.then(async (res) => {
+				if (!res.ok) throw new Error(await res.text());
+				manageMessage = 'success!';
+
+				shuffleTargets();
+			})
+			.catch((err) => (manageError = err));
+	};
 </script>
 
 <Container class="">
@@ -91,8 +107,17 @@
 			on:click={resetGame}>RESET GAME</button
 		>
 		<button
-			class="ml-2 w-full rounded-lg bg-neutral-600 px-4 py-2 font-bold md:w-auto"
+			class="mb-4 w-full rounded-lg bg-neutral-600 px-4 py-2 font-bold text-white md:mb-0 md:w-auto"
 			on:click={shuffleTargets}>SHUFFLE TARGETS</button
+		>
+
+		<button
+			class="mb-4 w-full rounded-lg bg-red-400 px-4 py-2 font-bold text-red-900 md:mb-0 md:w-auto"
+			on:click={() => killCutoff(1)}>1 KILL CUTOFF</button
+		>
+		<button
+			class="mb-4 w-full rounded-lg bg-red-400 px-4 py-2 font-bold text-red-900 md:mb-0 md:w-auto"
+			on:click={() => killCutoff(2)}>2 KILL CUTOFF</button
 		>
 		<div class="text-lg text-green-500">{dangerZoneMessage}</div>
 		<div class="text-lg text-red-500">{dangerZoneError}</div>
