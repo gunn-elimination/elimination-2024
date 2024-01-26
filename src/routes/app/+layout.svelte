@@ -6,7 +6,7 @@
 	import SettingsIcon from '$lib/icons/SettingsIcon.svelte';
 	import logo from '$lib/assets/images/icons/logo.png';
 
-	import { navigating } from '$app/stores';
+	import { navigating, page } from '$app/stores';
 	import { onMount } from 'svelte';
 
 	export let data;
@@ -24,6 +24,8 @@
 		if (playerData.role === 'Admin') {
 			navigation = [...navigation, { to: '/app/admin', icon: SettingsIcon, text: 'Admin' }];
 		}
+
+		console.log(`${$page.url.pathname}`);
 	});
 </script>
 
@@ -39,7 +41,9 @@
 		{#each navigation as item}
 			<a
 				href={item.to}
-				class="flex w-full items-center justify-center space-x-4 rounded-lg px-4 py-3 text-gray-300 hover:bg-gray-600/20"
+				class="{$page.url.pathname == item.to
+					? 'bg-red-700/80'
+					: ''} flex w-full items-center justify-center space-x-4 rounded-lg px-4 py-3 text-neutral-300 hover:bg-neutral-600/20"
 			>
 				<svelte:component this={item.icon} />
 				<div class="flex-1 text-lg">{item.text}</div>
@@ -61,7 +65,9 @@
 		{#each navigation as item}
 			<a
 				href={item.to}
-				class="flex w-full flex-col items-center justify-center space-y-1 rounded-lg p-4 text-gray-300 hover:bg-gray-600/20"
+				class="{$page.url.pathname == item.to
+					? 'text-red-700/80'
+					: ''} flex w-full flex-col items-center justify-center space-y-1 rounded-lg p-4 text-neutral-300 hover:bg-neutral-600/20"
 			>
 				<svelte:component this={item.icon} />
 			</a>
