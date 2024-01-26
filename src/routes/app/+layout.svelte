@@ -42,7 +42,7 @@
 			<a
 				href={item.to}
 				class="{$page.url.pathname == item.to
-					? 'bg-red-700/80'
+					? 'bg-red-900/40'
 					: ''} flex w-full items-center justify-center space-x-4 rounded-lg px-4 py-3 text-neutral-300 hover:bg-neutral-600/20"
 			>
 				<svelte:component this={item.icon} />
