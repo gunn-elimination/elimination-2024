@@ -40,12 +40,12 @@
 				</div>
 			</div>
 			<div class="text-right">
-				<div class="text-sm text-neutral-400">KILLS</div>
+				<div class="text-sm text-neutral-400">ELIMS</div>
 				<div class="text-3xl text-white">{profileData.kill_arr.length}</div>
 			</div>
 		</div>
 		<div class="mt-8 rounded-lg bg-neutral-700 p-6">
-			<div class="text-2xl">Recent Kills</div>
+			<div class="text-2xl">Recent Elims</div>
 			<div class="mt-4 flex flex-col space-y-3">
 				{#each playerKillFeed as kill}
 					<div class="text-md rounded-lg bg-neutral-600 px-4 py-2 text-neutral-300">
@@ -53,7 +53,7 @@
 							<a class="hover:underline" href="/app/profile/{kill.player_id?.student_id}"
 								>{kill.player_id?.full_name}</a
 							>
-							<div class=" text-neutral-400">Killed</div>
+							<div class=" text-neutral-400">eliminated</div>
 						</div>
 						<div class="flex flex-col justify-between md:flex-row">
 							<a class="hover:underline" href="/app/profile/{kill.target_id?.student_id}"
