@@ -288,7 +288,7 @@
 					<div
 						class="lg:flex-0 flex flex-1 items-center justify-center space-x-2 rounded-lg py-2 shadow-sm outline outline-1 outline-neutral-600 lg:px-6"
 					>
-						<div class="text-neutral-400">KILLS</div>
+						<div class="text-neutral-400">ELIMS</div>
 						<div class=" font-semibold">{playerData.kill_arr.length}</div>
 					</div>
 					<div

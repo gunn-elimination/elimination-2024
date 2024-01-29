@@ -25,7 +25,7 @@ export function getTodaysChallenge() {
 			break;
 		case 3:
 			rule =
-				'Targets Change at 10 PM: Players with less than one kill are automatically eliminated';
+				'Targets Change at 10 PM: Players with less than one elimination are automatically eliminated';
 			break;
 		case 4:
 		case 11:
@@ -40,7 +40,8 @@ export function getTodaysChallenge() {
 			rule = 'To stay safe, players must be wearing a HAT.';
 			break;
 		case 7:
-			rule = 'Targets Change at 10 PM: To stay safe, players must be wearing JORTS (jean shorts).';
+			rule =
+				'Targets Change at 10 PM: To stay safe, players must be wearing JORTS (jean shorts) You CAN roll up regular jeans to be shorts-length (at or above knee level).';
 			break;
 		case 8:
 			rule = 'To stay safe, players must be wearing a wig';
@@ -50,7 +51,7 @@ export function getTodaysChallenge() {
 			break;
 		case 10:
 			rule =
-				'Targets Change at 10 PM: Players with less than two kills are automatically eliminated';
+				'Targets Change at 10 PM: Players with less than two eliminations are automatically eliminated';
 			break;
 		case 12:
 			rule = 'To eliminate others, players must have at least one shoe off.';
