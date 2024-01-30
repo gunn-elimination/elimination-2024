@@ -65,7 +65,7 @@ export const POST = async ({ url, locals: { supabaseAdmin, getRole }, request })
 	// Add player back into target pool
 	const { error: addTargetError } = await supabaseAdmin
 		.from('targets')
-		.insert({ id: revivedPlayer.id, target: null, kill_code: null });
+		.insert({ id: revivedPlayer.id, target: null, kill_code: Math.floor(Math.random() * 100000).toString().padStart(5, '0')});
 	if (addTargetError) throw error(500, 'Error adding player to targets table');
 
 	return json({ message: 'Player revived successfully' });
