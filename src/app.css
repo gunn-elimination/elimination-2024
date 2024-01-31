@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Saira&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Advent+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Tenor+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poiret+One&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,8 +12,23 @@
 @layer base {
 	html,
 	body {
-		@apply dark:bg-neutral-800;
+		@apply dark:bg-zinc-900;
 		@apply dark:text-white;
 		@apply font-nunito;
 	}
+}
+
+.-home-about {
+	background: linear-gradient(225deg, transparent 0%, #4b556377 0%, #4b556377 10%, transparent 10%);
+	background-position: top 3px right 3px;
+}
+
+.-home-play {
+	background: linear-gradient(225deg, transparent 0%, #ef4444dd 0%, #ef4444dd 10%, transparent 10%);
+	background-position: top 3px right 3px;
+}
+
+.body {
+	background: linear-gradient(90deg, #fff 1%, transparent 1%) 1px 0;
+	background-size: 100px 50px;
 }

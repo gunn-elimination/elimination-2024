@@ -20,7 +20,12 @@ export default {
 				}
 			},
 			fontFamily: {
-				nunito: ['Nunito', 'sans-serif']
+				nunito: ['"Nunito"', 'sans-serif'],
+				saira: ['"Saira"', 'sans-serif'],
+				dosis: ['"Dosis"', 'sans-serif'],
+				advent: ['"Advent Pro"', 'sans-serif'],
+				tenor: ['"Tenor Sans"', 'sans-serif'],
+				poiret: ['"Poiret One"', 'sans-serif']
 			},
 			skeletonScreen: {
 				color: '#525252',
