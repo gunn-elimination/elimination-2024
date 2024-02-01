@@ -14,7 +14,7 @@
 			</div>
 		</h1>
 		<div
-			class="relative -right-6 flex flex-row-reverse items-baseline justify-end gap-7 self-end text-2xl max-md:-right-[2.3rem] max-md:self-start max-md:text-xl"
+			class="relative -right-6 flex flex-row-reverse items-baseline justify-end gap-7 self-end text-2xl max-md:-right-[3.6rem] max-md:self-start max-md:text-xl"
 		>
 			<a
 				href="/login"
