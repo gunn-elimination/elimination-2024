@@ -25,7 +25,9 @@ export default {
 				dosis: ['"Dosis"', 'sans-serif'],
 				advent: ['"Advent Pro"', 'sans-serif'],
 				tenor: ['"Tenor Sans"', 'sans-serif'],
-				poiret: ['"Poiret One"', 'sans-serif']
+				poiret: ['"Poiret One"', 'sans-serif'],
+				raleway: ['"Raleway"', 'sans-serif'],
+				garamond: ['"EB Garamond"', 'sans-serif']
 			},
 			skeletonScreen: {
 				color: '#525252',
