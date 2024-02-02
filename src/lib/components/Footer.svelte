@@ -1,5 +1,5 @@
 <footer class="fixed bottom-0 w-screen">
-	<div class="mx-auto flex w-full max-w-screen-xl items-baseline justify-between px-4 py-2">
+	<div class="mx-auto flex w-full max-w-screen-xl items-baseline justify-between px-[.8rem] py-2">
 		<span class="text-xs text-gray-400/70 sm:text-center"
 			>Made by <a href="https://github.com/ThePickleGawd" class="hover:underline">Dylan Lu</a></span
 		>
