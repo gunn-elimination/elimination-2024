@@ -52,6 +52,11 @@
 			</div>
 			<div class="mt-6">
 				{#if showLeaderboard}
+					<div class="my-2 flex items-center justify-center rounded-lg bg-neutral-800 p-4">
+						<div class="font-semibold">
+							Players Alive: {leaderboard.filter((player) => player.alive).length}
+						</div>
+					</div>
 					<div class="flex px-4 py-2 text-neutral-400">
 						<div class="ml-12 flex-1 text-sm text-neutral-500">NAME</div>
 						<div class="w-16 text-right text-sm text-neutral-500">ELIMS</div>
