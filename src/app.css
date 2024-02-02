@@ -38,7 +38,7 @@
 }
 
 .-home-play {
-	--color: #dc2626;
+	--color: #dc262680;
 	background: linear-gradient(
 		45deg,
 		transparent 0%,
@@ -50,7 +50,7 @@
 }
 
 .-home-play:hover {
-	--color: #dc262680;
+	--color: #dc2626;
 }
 
 .-about-rules {

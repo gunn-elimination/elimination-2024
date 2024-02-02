@@ -18,9 +18,9 @@
 		>
 			<a
 				href="/login"
-				class="-home-play group relative border-[1px] border-red-600 px-6 py-2 before:absolute before:bottom-0 before:right-0 before:-z-20 before:h-full before:w-4 before:border-b-[1px] before:border-r-[1px] before:border-red-900/40 before:border-opacity-0 before:transition-all after:absolute after:left-4 after:top-[1.8rem] after:-z-10 after:h-7 after:w-0 after:bg-rose-400/10 after:transition-all hover:border-red-600/50 hover:before:-bottom-10 hover:before:right-12 hover:before:h-screen hover:before:w-screen hover:before:border-opacity-100 hover:after:w-[140%]"
+				class="-home-play group relative border-[1px] border-red-600/50 px-6 py-2 before:absolute before:bottom-0 before:right-0 before:-z-20 before:h-full before:w-4 before:border-b-[1px] before:border-r-[1px] before:border-red-900/40 before:border-opacity-0 before:transition-all after:absolute after:left-4 after:top-[1.8rem] after:-z-10 after:h-7 after:w-0 after:bg-rose-400/10 after:transition-all hover:border-red-600 hover:before:-bottom-10 hover:before:right-12 hover:before:h-screen hover:before:w-screen hover:before:border-opacity-100 hover:after:w-[140%]"
 			>
-				<span class="font-poiret font-semibold text-zinc-100/80 group-hover:text-zinc-100">
+				<span class="font-poiret font-semibold text-zinc-100/90 group-hover:text-zinc-50">
 					Play!
 				</span>
 			</a>
