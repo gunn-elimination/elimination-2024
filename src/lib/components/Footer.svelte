@@ -1,14 +1,16 @@
 <footer class="fixed bottom-0 w-screen">
-	<div class="mx-auto w-full max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-		<span class="text-sm text-gray-400 sm:text-center"
+	<div class="mx-auto flex w-full max-w-screen-xl items-baseline justify-between px-4 py-2">
+		<span class="text-xs text-gray-400/70 sm:text-center"
 			>Made by <a href="https://github.com/ThePickleGawd" class="hover:underline">Dylan Lu</a></span
 		>
-		<ul class="mt-3 flex flex-wrap items-center text-sm font-medium text-gray-400 md:mt-0">
+		<ul
+			class="mt-1 flex flex-wrap items-center gap-3 text-xs font-medium text-gray-400 md:mt-0 md:text-sm"
+		>
 			<li>
-				<a href="/" class="mr-4 hover:underline md:mr-6">Home</a>
+				<a href="/" class="hover:underline">Home</a>
 			</li>
 			<li>
-				<a href="/about" class="mr-4 hover:underline md:mr-6">About</a>
+				<a href="/about" class="hover:underline">About</a>
 			</li>
 			<li>
 				<a href="/contact" class="hover:underline">Contact</a>
