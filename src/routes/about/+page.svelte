@@ -9,7 +9,7 @@
 	<div
 		class="h-full w-[80%] [&:has(.-about-rules:hover)_*:not(:has(.-about-rules))]:opacity-30 [&:has(.-about-rules:hover)_*]:transition-opacity [&:has(.-about-rules:hover)_*]:duration-300 [&:has(.-about-rules:hover)_.-about-rules]:opacity-100"
 	>
-		<h1 class="-z-10 mt-16 font-advent text-9xl text-zinc-700">about</h1>
+		<h1 class="-z-50 mt-16 font-advent text-9xl text-zinc-700 max-md:text-7xl">about</h1>
 		<div class="mb-16 mt-4 flex flex-col p-4 text-2xl text-neutral-300/80 max-md:text-lg">
 			<div class="mb-10 font-dosis max-md:mb-20">
 				Gunn Elimination is a school-wide, competitive game of tag where each player is assigned a
@@ -21,17 +21,21 @@
 				<a
 					href="https://docs.google.com/document/d/1hVzXL1SsPiucapmx3-DCVyd8zRgJaDpWrZHDbUM1K3w/edit?usp=sharing"
 					target="_blank"
-					class="-about-rules relative mr-8 w-min self-end px-6 py-2 font-poiret no-underline before:pointer-events-none before:absolute before:left-0 before:top-0 before:h-[85%] before:w-8 before:border-l-[1px] before:border-t-[1px] before:border-zinc-500 before:transition-all before:duration-300 after:pointer-events-none after:absolute after:bottom-0 after:right-0 after:h-6 after:w-14 after:border-b-[1px] after:border-r-[1px] after:border-zinc-500 after:transition-all after:duration-300 hover:text-zinc-100 hover:before:h-screen hover:before:w-screen hover:before:border-zinc-100 hover:after:h-screen hover:after:w-screen hover:after:border-zinc-100 max-md:pl-3 max-md:pr-4 max-md:text-base"
+					class="-about-rules relative mr-8 w-min self-end px-6 py-2 font-poiret no-underline before:pointer-events-none before:absolute before:left-0 before:top-0 before:h-[85%] before:w-8 before:border-l-[1px] before:border-t-[1px] before:border-zinc-500 before:transition-all before:duration-300 after:pointer-events-none after:absolute after:bottom-0 after:right-0 after:h-6 after:w-14 after:border-b-[1px] after:border-r-[1px] after:border-zinc-500 after:transition-all after:duration-300 hover:text-zinc-100 hover:before:h-screen hover:before:w-screen hover:before:border-zinc-100 hover:after:h-screen hover:after:w-screen hover:after:border-zinc-100 max-md:pl-3 max-md:pr-4 max-md:text-lg"
 				>
 					Rules&nbsp;\&nbsp;Calendar
 					<div
-						class="pointer-events-none absolute top-[61%] -z-50 h-px w-[70dvw] -translate-x-2/3 bg-gray-700/20 max-md:-translate-x-1/2"
+						class="pointer-events-none absolute top-[61%] -z-50 w-[70dvw] -translate-x-2/3 border-t-[1px] border-gray-700/20 max-md:-translate-x-1/2 max-sm:-translate-x-1/4"
 					/>
 				</a>
 			</div>
 		</div>
-		<div>
-			<h2 class="-z-10 mb-10 font-advent text-6xl text-zinc-700">calendar</h2>
+		<div class="mb-40">
+			<h2
+				class="relative -z-50 mb-10 pl-8 font-advent text-6xl text-zinc-700 before:absolute before:-left-8 before:bottom-0 before:h-[40%] before:w-[44rem] before:border-b-[1.5px] before:border-r-[1.5px] before:border-zinc-800 max-md:before:-left-4 max-md:before:w-[40rem]"
+			>
+				calendar
+			</h2>
 			<table class="-calendar">
 				<thead>
 					<tr>
