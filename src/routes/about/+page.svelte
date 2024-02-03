@@ -31,11 +31,19 @@
 			</div>
 		</div>
 		<div class="mb-40">
-			<h2
-				class="relative -z-50 mb-10 pl-8 font-advent text-6xl lowercase text-zinc-700 before:absolute before:-left-8 before:bottom-0 before:h-[40%] before:w-[44rem] before:border-b-[1.5px] before:border-r-[1.5px] before:border-zinc-800 max-md:before:-left-4 max-md:before:w-[40rem]"
-			>
-				Calendar
-			</h2>
+			<div class="mb-0 pl-10">
+				<h2
+					class="relative -z-50 mb-2 font-advent text-6xl lowercase text-zinc-700 before:absolute before:-left-10 before:bottom-0 before:h-[40%] before:w-[44rem] before:border-b-[1.5px] before:border-r-[1.5px] before:border-zinc-800 max-md:before:-left-4 max-md:before:w-[40rem]"
+				>
+					Calendar
+				</h2>
+				<div
+					class="relative ml-0 w-max font-raleway text-gray-400 before:absolute before:-left-2 before:-top-24 before:h-32 before:border-l-[1px] before:border-gray-400"
+				>
+					<span class="uppercase">Game ends</span> @ Feb 20th, 11:59 PM. The player with the most
+					eliminations and still alive <span class="uppercase">wins</span>.
+				</div>
+			</div>
 			<table class="-calendar">
 				<thead>
 					<tr>

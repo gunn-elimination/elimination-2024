@@ -72,7 +72,7 @@
 /* Calendar */
 
 .-calendar {
-	@apply text-zinc-300;
+	@apply text-gray-300;
 
 	table-layout: fixed;
 	width: 1000px;
