@@ -32,9 +32,9 @@
 		</div>
 		<div class="mb-40">
 			<h2
-				class="relative -z-50 mb-10 pl-8 font-advent text-6xl text-zinc-700 before:absolute before:-left-8 before:bottom-0 before:h-[40%] before:w-[44rem] before:border-b-[1.5px] before:border-r-[1.5px] before:border-zinc-800 max-md:before:-left-4 max-md:before:w-[40rem]"
+				class="relative -z-50 mb-10 pl-8 font-advent text-6xl lowercase text-zinc-700 before:absolute before:-left-8 before:bottom-0 before:h-[40%] before:w-[44rem] before:border-b-[1.5px] before:border-r-[1.5px] before:border-zinc-800 max-md:before:-left-4 max-md:before:w-[40rem]"
 			>
-				calendar
+				Calendar
 			</h2>
 			<table class="-calendar">
 				<thead>
