@@ -5,7 +5,7 @@
 	import calendarImage from '$lib/assets/images/calendar.png';
 </script>
 
-<div class="flex w-full justify-center">
+<div class="flex w-full justify-center [&:has(.-about-rules:hover)]:overflow-hidden">
 	<div
 		class="h-full w-[80%] [&:has(.-about-rules:hover)_*:not(:has(.-about-rules))]:opacity-30 [&:has(.-about-rules:hover)_*]:transition-opacity [&:has(.-about-rules:hover)_*]:duration-300 [&:has(.-about-rules:hover)_.-about-rules]:opacity-100"
 	>
@@ -21,7 +21,7 @@
 				<a
 					href="https://docs.google.com/document/d/1hVzXL1SsPiucapmx3-DCVyd8zRgJaDpWrZHDbUM1K3w/edit?usp=sharing"
 					target="_blank"
-					class="-about-rules relative mr-8 w-min self-end px-6 py-2 font-poiret no-underline before:pointer-events-none before:absolute before:left-0 before:top-0 before:h-[85%] before:w-8 before:border-l-[1px] before:border-t-[1px] before:border-zinc-500 before:transition-all before:duration-300 after:pointer-events-none after:absolute after:bottom-0 after:right-0 after:h-6 after:w-14 after:border-b-[1px] after:border-r-[1px] after:border-zinc-500 after:transition-all after:duration-300 hover:text-zinc-100 hover:before:h-screen hover:before:w-screen hover:before:border-zinc-100 hover:after:h-screen hover:after:w-screen hover:after:border-zinc-100 max-md:pl-3 max-md:pr-4 max-md:text-lg"
+					class="-about-rules relative mr-8 w-min self-end px-6 py-2 font-poiret text-zinc-300 no-underline before:pointer-events-none before:absolute before:left-0 before:top-0 before:h-[85%] before:w-8 before:border-l-[1px] before:border-t-[1px] before:border-zinc-500 before:transition-all before:duration-300 after:pointer-events-none after:absolute after:bottom-0 after:right-0 after:h-6 after:w-14 after:border-b-[1px] after:border-r-[1px] after:border-zinc-500 after:transition-all after:duration-300 hover:text-zinc-100 hover:before:h-[200dvh] hover:before:w-[200dvw] hover:before:border-zinc-100 hover:after:h-screen hover:after:w-screen hover:after:border-zinc-100 max-md:pl-3 max-md:pr-4 max-md:text-lg"
 				>
 					Rules&nbsp;\&nbsp;Calendar
 					<div
