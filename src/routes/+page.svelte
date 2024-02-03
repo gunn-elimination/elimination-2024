@@ -26,7 +26,7 @@
 			</a>
 			<a
 				href="/about"
-				class="-home-about relative border-l-[1px] border-t-[1px] border-zinc-600 px-6 py-2 text-right font-poiret font-semibold text-zinc-600 before:pointer-events-none before:absolute before:-bottom-[1.25rem] before:right-[6.7rem] before:h-10 before:w-3 before:border-b-[1px] before:border-r-[24px] before:border-zinc-500 before:duration-150 hover:border-zinc-400 hover:text-zinc-700/70 hover:before:-bottom-6 hover:before:-right-10 hover:before:h-28 hover:before:w-16 hover:before:border-r-[1px] hover:before:border-zinc-300 hover:before:transition-all max-md:before:right-24 max-md:before:border-r-[16px]"
+				class="-home-about relative border-l-[1px] border-t-[1px] border-zinc-600 px-6 py-2 text-right font-poiret font-semibold text-zinc-600 before:pointer-events-none before:absolute before:-bottom-[1.25rem] before:right-[6.7rem] before:h-10 before:w-3 before:border-b-[1px] before:border-r-[24px] before:border-zinc-500 before:duration-150 hover:border-zinc-400 hover:text-zinc-600/70 hover:before:-bottom-6 hover:before:-right-10 hover:before:h-28 hover:before:w-16 hover:before:border-r-[1px] hover:before:border-zinc-300 hover:before:transition-all max-md:before:right-24 max-md:before:border-r-[16px]"
 			>
 				About
 			</a>
