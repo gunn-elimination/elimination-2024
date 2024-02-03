@@ -69,6 +69,22 @@
 	--color: #f4f4f5;
 }
 
+.-login {
+	--color: #52525b;
+	background: linear-gradient(
+		315deg,
+		transparent 0%,
+		var(--color) 0%,
+		var(--color) 6.5%,
+		transparent 6.5%
+	);
+	background-position: bottom 5px right 5px;
+}
+
+.-login:hover {
+	--color: #f4f4f5;
+}
+
 /* Calendar */
 
 .-calendar {
