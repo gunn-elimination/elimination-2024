@@ -92,7 +92,7 @@
 				if (!res.ok) throw new Error(await res.text());
 				manageMessage = 'success!';
 
-				shuffleTargets();
+				//shuffleTargets();
 			})
 			.catch((err) => (manageError = err));
 	};

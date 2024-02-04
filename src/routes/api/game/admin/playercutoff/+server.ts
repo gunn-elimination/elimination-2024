@@ -22,14 +22,17 @@ export const POST = async ({ url, locals: { supabaseAdmin, getSession, getRole }
 
 	// Update these players
 	for (const player of playersToUpdate) {
+		if (!player.alive) continue;
+
 		const { error: updateError } = await supabaseAdmin
 			.from('players')
 			.update({ alive: false })
 			.eq('id', player.id); // Assuming each player has a unique 'id' field
 
-		if (updateError) {
-			throw updateError;
-		}
+		const { error: deleteError } = await supabaseAdmin.from('targets').delete().eq('id', player.id);
+
+		if (deleteError) throw error(500, 'Error deleting target');
+		if (updateError) throw error(500, 'Error setting player to dead');
 	}
 
 	return json({ message: 'Successfully cutoff players' });
