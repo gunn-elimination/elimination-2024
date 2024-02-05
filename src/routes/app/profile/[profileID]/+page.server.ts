@@ -14,7 +14,11 @@ export const load: PageServerLoad = async ({ params, parent, locals: { supabaseA
 		);
 
 	if (!killFeedData || killFeedError) throw new Error('Error fetching kill feed');
-	const playerKillFeed = killFeedData.filter((a) => a.player_id?.student_id == profileID);
+
+	// Get only our player's kills and sort in reverse order using id
+	const playerKillFeed = killFeedData
+		.filter((a) => a.player_id?.student_id == profileID)
+		.sort((a, b) => b.id - a.id);
 
 	if (!profileData) {
 		throw error(500, 'Profile not found');

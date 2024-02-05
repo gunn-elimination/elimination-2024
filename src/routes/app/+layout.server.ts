@@ -11,7 +11,15 @@ export const load: LayoutServerLoad = async ({ locals: { getSession, supabaseAdm
 		.select('full_name, student_id, kill_arr, alive');
 
 	if (!allPlayers || playerError) throw new Error('Error fetching players');
-	allPlayers.sort((a, b) => b.kill_arr.length - a.kill_arr.length);
+	allPlayers.sort((a, b) => {
+		// Compare by kill counts first
+		const killDiff = b.kill_arr.length - a.kill_arr.length;
+		if (killDiff !== 0) {
+			return killDiff;
+		}
+		// If kill counts are the same, alive players come first
+		return b.alive === a.alive ? 0 : a.alive ? -1 : 1;
+	});
 
 	// Who is our target?
 	const { data, error } = await supabaseAdmin
