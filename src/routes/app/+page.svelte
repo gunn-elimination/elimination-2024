@@ -261,7 +261,9 @@
 			<div class="mt-4 rounded-lg bg-neutral-700 px-8 py-6 shadow-xl lg:flex">
 				<div class="lg:w-1/2">
 					<div class="text-sm text-neutral-400">TARGET - {targetData.studentID}</div>
-					<div class="text-3xl">{targetData.name}</div>
+					<a href="/app/profile/{targetData.studentID}" class="text-3xl hover:underline"
+						>{targetData.name}</a
+					>
 				</div>
 				<div class="mt-6 flex w-full items-end justify-center space-x-2 lg:mt-0 lg:w-1/2">
 					<button
